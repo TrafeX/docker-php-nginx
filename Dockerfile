@@ -1,4 +1,5 @@
-FROM php:7.0-fpm
+FROM debian:jessie
 
-COPY config/php.ini /usr/local/etc/php/conf.d/custom.ini
-ADD ./src/ /var/www/html/
+COPY src/ /var/www/html/
+
+VOLUME /var/www/html/

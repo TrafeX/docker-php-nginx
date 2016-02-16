@@ -17,4 +17,5 @@ See the PHP info on http://docker-app.dev
 Resources & inspiration
 -----------------------
 https://ejosh.co/de/2015/09/how-to-link-docker-containers-together
+
 https://github.com/johanan/Ansible-and-Docker

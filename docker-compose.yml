@@ -1,19 +1,15 @@
 appdata:
-    image: debian:jessie
-    volumes:
-        - ./src:/var/www/html
+    build: .
 
 fpm:
-    build: .
+    build: ./fpm
     volumes_from:
         - appdata
 
 nginx:
-    image: nginx:1.9
+    build: ./nginx
     links:
         - fpm
-    volumes:
-        - ./config/nginx.conf:/etc/nginx/conf.d/app.conf:ro
     volumes_from:
         - appdata
     ports:
