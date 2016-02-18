@@ -14,3 +14,6 @@ nginx:
         - appdata
     ports:
         - 80:80
+    environment:
+    - UPSTREAM_HOST=fpm
+    - UPSTREAM_PORT=9000
