@@ -1,3 +1,5 @@
+sudo: false
+
 env:
     global:
         - COMMIT=${TRAVIS_COMMIT::8}
