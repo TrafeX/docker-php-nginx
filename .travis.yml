@@ -1,5 +1,3 @@
-sudo: false
-
 services:
     - docker
 
