@@ -1,27 +1,14 @@
 Docker PHP-FPM & Nginx setup
 ============================
-Example PHP-FPM & Nginx setup for Docker using docker-compose.
+Example PHP-FPM 7 & Nginx 1.9 setup for Docker
 
 Usage
 -----
-Add this to your hosts file:
-
-    127.0.0.1 docker-app.dev
-
 Start the Docker containers:
 
-    docker-compose up
+    sudo docker run -p 80:80 trafex/php-nginx
 
-See the PHP info on http://docker-app.dev
-
-Docker Hub
-----------
-The containers can be found on the Docker hub:
-
-- [trafex/example-appdata](https://hub.docker.com/r/trafex/example-appdata)
-- [trafex/example-nginx](https://hub.docker.com/r/trafex/example-nginx)
-- [trafex/example-phpfpm](https://hub.docker.com/r/trafex/example-phpfpm)
-
+See the PHP info on http://localhost, or the static html page on http://localhost/test.html
 
 Resources & inspiration
 -----------------------
