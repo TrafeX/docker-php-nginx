@@ -2,6 +2,10 @@ Docker PHP-FPM 7.0 & Nginx 1.9 setup
 ====================================
 Example PHP-FPM 7.0 & Nginx 1.9 setup for Docker
 
+
+[![Docker Pulls](https://img.shields.io/docker/pulls/trafex/php-nginx.svg)](https://hub.docker.com/r/trafex/php-nginx/)
+
+
 Usage
 -----
 Start the Docker containers:
