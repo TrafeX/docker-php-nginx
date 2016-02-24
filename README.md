@@ -1,6 +1,6 @@
-Docker PHP-FPM & Nginx setup
-============================
-Example PHP-FPM 7 & Nginx 1.9 setup for Docker
+Docker PHP-FPM 7.0 & Nginx 1.9 setup
+====================================
+Example PHP-FPM 7.0 & Nginx 1.9 setup for Docker
 
 Usage
 -----
