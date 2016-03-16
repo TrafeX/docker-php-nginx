@@ -1,26 +1,17 @@
-FROM php:7.0-fpm
+FROM alpine:latest
 
-# Install Nginx
-ENV NGINX_VERSION 1.9.11-1~jessie
-
-RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62 \
-	&& echo "deb http://nginx.org/packages/mainline/debian/ jessie nginx" >> /etc/apt/sources.list \
-	&& apt-get update \
-	&& apt-get install -y ca-certificates nginx=${NGINX_VERSION} gettext-base \
-	&& rm -rf /var/lib/apt/lists/*
-
-# Install supervisor
-RUN apt-get update && apt-get install -y supervisor
+# Install packages
+RUN apk --update add php7-fpm nginx supervisor --repository http://nl.alpinelinux.org/alpine/edge/testing/
 
 # Configure nginx
-RUN rm /etc/nginx/conf.d/default.conf
-COPY config/nginx.conf /etc/nginx/conf.d/nginx.conf
-
-# Configure supervisor
-COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY config/nginx.conf /etc/nginx/nginx.conf
 
 # Configure PHP-FPM
-COPY config/php.ini /usr/local/etc/php/conf.d/custom.ini
+COPY config/fpm-pool.conf /etc/php7/php-fpm.d/zzz_custom.conf
+COPY config/php.ini /etc/php7/conf.d/zzz_custom.ini
+
+# Configure supervisord
+COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Add application
 RUN mkdir -p /var/www/html
@@ -28,4 +19,4 @@ WORKDIR /var/www/html
 COPY src/ /var/www/html/
 
 EXPOSE 80 443
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
