@@ -1,10 +1,10 @@
-Docker PHP-FPM 7.0 & Nginx 1.9 setup
-====================================
-Example PHP-FPM 7.0 & Nginx 1.9 setup for Docker
+Docker PHP-FPM 7.0 & Nginx 1.8 on Alpine Linux
+==============================================
+Example PHP-FPM 7.0 & Nginx 1.8 setup for Docker, build on [Alpine Linux](http://www.alpinelinux.org/).
+The image is only +/- 60MB large.
 
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/trafex/php-nginx.svg)](https://hub.docker.com/r/trafex/php-nginx/)
-
+[![Docker Pulls](https://img.shields.io/docker/pulls/trafex/alpine-nginx-php7.svg)](https://hub.docker.com/r/trafex/alpine-nginx-php7/)
 
 Usage
 -----

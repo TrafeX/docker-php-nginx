@@ -4,7 +4,7 @@ services:
 env:
     global:
         - COMMIT=${TRAVIS_COMMIT::8}
-        - REPO=trafex/php-nginx
+        - REPO=trafex/alpine-nginx-php7
 
 script:
   - docker --version
