@@ -10,7 +10,7 @@ Usage
 -----
 Start the Docker containers:
 
-    sudo docker run -p 80:80 trafex/php-nginx
+    sudo docker run -p 80:80 trafex/alpine-nginx-php7
 
 See the PHP info on http://localhost, or the static html page on http://localhost/test.html
 
