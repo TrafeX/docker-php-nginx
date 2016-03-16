@@ -1,4 +1,5 @@
 FROM alpine:latest
+MAINTAINER Tim de Pater <code@trafex.nl>
 
 # Install packages
 RUN apk --update add php7-fpm nginx supervisor --repository http://nl.alpinelinux.org/alpine/edge/testing/
