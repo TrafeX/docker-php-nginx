@@ -2,7 +2,7 @@ FROM alpine:latest
 MAINTAINER Tim de Pater <code@trafex.nl>
 
 # Install packages
-RUN apk --update add php7-fpm nginx supervisor --repository http://nl.alpinelinux.org/alpine/edge/testing/
+RUN apk --update add php7 php7-fpm nginx supervisor --repository http://nl.alpinelinux.org/alpine/edge/testing/
 
 # Configure nginx
 COPY config/nginx.conf /etc/nginx/nginx.conf
