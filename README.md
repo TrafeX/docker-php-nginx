@@ -17,5 +17,4 @@ See the PHP info on http://localhost, or the static html page on http://localhos
 Resources & inspiration
 -----------------------
 https://ejosh.co/de/2015/09/how-to-link-docker-containers-together
-
 https://github.com/johanan/Ansible-and-Docker

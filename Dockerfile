@@ -1,8 +1,9 @@
-FROM alpine:latest
-MAINTAINER Tim de Pater <code@trafex.nl>
+FROM alpine:3.5
+LABEL Maintainer="Tim de Pater <code@trafex.nl>" \
+      Description="Lightweight container with Nginx 1.10 & PHP-FPM 7.0 based on Alpine Linux."
 
 # Install packages
-RUN apk --update add php7 php7-fpm nginx supervisor --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/
+RUN apk --no-cache add php7 php7-fpm nginx supervisor --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/
 
 # Configure nginx
 COPY config/nginx.conf /etc/nginx/nginx.conf
