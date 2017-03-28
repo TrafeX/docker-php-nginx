@@ -1,9 +1,16 @@
 FROM alpine:3.5
 LABEL Maintainer="Tim de Pater <code@trafex.nl>" \
-      Description="Lightweight container with Nginx 1.10 & PHP-FPM 7.0 based on Alpine Linux."
+      Description="Lightweight container with Nginx 1.10 & PHP-FPM 7.1 based on Alpine Linux."
 
-# Install packages
-RUN apk --no-cache add php7 php7-fpm nginx supervisor --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/
+# Install packages from testing repo's
+RUN apk --no-cache add php7 php7-fpm php7-mysqli php7-json php7-openssl php7-curl \
+    php7-zlib php7-xml php7-phar php7-intl php7-dom php7-xmlreader php7-ctype \
+    php7-mbstring php7-gd nginx \
+    --repository http://dl-cdn.alpinelinux.org/alpine/edge/main/ \
+    --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing/
+
+# Install packages from stable repo's
+RUN apk --no-cache add supervisor curl
 
 # Configure nginx
 COPY config/nginx.conf /etc/nginx/nginx.conf
