@@ -1,6 +1,6 @@
-Docker PHP-FPM 7.1 & Nginx 1.10 on Alpine Linux
+Docker PHP-FPM 7.1 & Nginx 1.12 on Alpine Linux
 ==============================================
-Example PHP-FPM 7.1 & Nginx 1.10 setup for Docker, build on [Alpine Linux](http://www.alpinelinux.org/).
+Example PHP-FPM 7.1 & Nginx 1.12 setup for Docker, build on [Alpine Linux](http://www.alpinelinux.org/).
 The image is only +/- 35MB large.
 
 
