@@ -18,12 +18,10 @@ COPY config/php.ini /etc/php7/conf.d/zzz_custom.ini
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Make sure files/folders needed by the processes are accessable when they run under the nobody user
-RUN touch /run/nginx.pid && \
-  touch /run/supervisord.pid && \
-  chown -R nobody.nobody /run/nginx.pid && \
-  chown -R nobody.nobody /run/supervisord.pid && \
+RUN chown -R nobody.nobody /run && \
+  chown -R nobody.nobody /var/lib/nginx && \
   chown -R nobody.nobody /var/tmp/nginx && \
-  chown -R nobody.nobody /var/lib/nginx/logs
+  chown -R nobody.nobody /var/log/nginx
 
 # Setup document root
 RUN mkdir -p /var/www/html
