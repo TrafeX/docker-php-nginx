@@ -16,6 +16,10 @@ Repository: https://github.com/TrafeX/docker-php-nginx
 
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/trafex/alpine-nginx-php7.svg)](https://hub.docker.com/r/trafex/alpine-nginx-php7/)
+[![Docker image layers](https://images.microbadger.com/badges/image/trafex/alpine-nginx-php7.svg)](https://microbadger.com/images/trafex/alpine-nginx-php7)
+![nginx 1.14.1](https://img.shields.io/badge/nginx-1.14-brightgreen.svg)
+![php 7.2](https://img.shields.io/badge/php-7.2-brightgreen.svg)
+![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ### Breaking changes (26/01/2019)
 
