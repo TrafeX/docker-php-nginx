@@ -26,6 +26,9 @@ RUN chown -R nobody.nobody /run && \
 # Setup document root
 RUN mkdir -p /var/www/html
 
+# Make the document root a volume
+VOLUME /var/www/html
+
 # Switch to use a non-root user from here on
 USER nobody
 

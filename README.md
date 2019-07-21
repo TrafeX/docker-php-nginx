@@ -36,3 +36,7 @@ Start the Docker container:
     docker run -p 80:8080 trafex/alpine-nginx-php7
 
 See the PHP info on http://localhost, or the static html page on http://localhost/test.html
+
+Or mount your own code to be served by PHP-FPM & Nginx
+
+    docker run -p 80:8080 -v ~/my-codebase:/var/www/html trafex/alpine-nginx-php7
