@@ -1,5 +1,5 @@
-# Docker PHP-FPM 7.2 & Nginx 1.14 on Alpine Linux
-Example PHP-FPM 7.2 & Nginx 1.14 setup for Docker, build on [Alpine Linux](http://www.alpinelinux.org/).
+# Docker PHP-FPM 7.3 & Nginx 1.16 on Alpine Linux
+Example PHP-FPM 7.3 & Nginx 1.16 setup for Docker, build on [Alpine Linux](http://www.alpinelinux.org/).
 The image is only +/- 35MB large.
 
 Repository: https://github.com/TrafeX/docker-php-nginx
@@ -7,7 +7,7 @@ Repository: https://github.com/TrafeX/docker-php-nginx
 
 * Built on the lightweight and secure Alpine Linux distribution
 * Very small Docker image size (+/-35MB)
-* Uses PHP 7.2 for better performance, lower cpu usage & memory footprint
+* Uses PHP 7.3 for better performance, lower cpu usage & memory footprint
 * Optimized for 100 concurrent users
 * Optimized to only use resources when there's traffic (by using PHP-FPM's ondemand PM)
 * The servers Nginx, PHP-FPM and supervisord run under a non-privileged user (nobody) to make it more secure
@@ -17,8 +17,8 @@ Repository: https://github.com/TrafeX/docker-php-nginx
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/trafex/alpine-nginx-php7.svg)](https://hub.docker.com/r/trafex/alpine-nginx-php7/)
 [![Docker image layers](https://images.microbadger.com/badges/image/trafex/alpine-nginx-php7.svg)](https://microbadger.com/images/trafex/alpine-nginx-php7)
-![nginx 1.14.1](https://img.shields.io/badge/nginx-1.14-brightgreen.svg)
-![php 7.2](https://img.shields.io/badge/php-7.2-brightgreen.svg)
+![nginx 1.16.1](https://img.shields.io/badge/nginx-1.16-brightgreen.svg)
+![php 7.3](https://img.shields.io/badge/php-7.3-brightgreen.svg)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ### Breaking changes (26/01/2019)
