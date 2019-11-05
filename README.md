@@ -12,7 +12,7 @@ Repository: https://github.com/TrafeX/docker-php-nginx
 * Optimized to only use resources when there's traffic (by using PHP-FPM's ondemand PM)
 * The servers Nginx, PHP-FPM and supervisord run under a non-privileged user (nobody) to make it more secure
 * The logs of all the services are redirected to the output of the Docker container (visible with `docker logs -f <container name>`)
-* Follows the KISS principle (Keep It Simple, Stupid) to make it easy to understand and adjust the image
+* Follows the KISS principle (Keep It Simple, Stupid) to make it easy to understand and adjust the image to your needs
 
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/trafex/alpine-nginx-php7.svg)](https://hub.docker.com/r/trafex/alpine-nginx-php7/)
