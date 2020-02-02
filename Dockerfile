@@ -19,14 +19,15 @@ COPY config/php.ini /etc/php7/conf.d/custom.ini
 # Configure supervisord
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+# Setup document root
+RUN mkdir -p /var/www/html
+
 # Make sure files/folders needed by the processes are accessable when they run under the nobody user
-RUN chown -R nobody.nobody /run && \
+RUN chown -R nobody.nobody /var/www/html && \
+  chown -R nobody.nobody /run && \
   chown -R nobody.nobody /var/lib/nginx && \
   chown -R nobody.nobody /var/tmp/nginx && \
   chown -R nobody.nobody /var/log/nginx
-
-# Setup document root
-RUN mkdir -p /var/www/html
 
 # Make the document root a volume
 VOLUME /var/www/html
