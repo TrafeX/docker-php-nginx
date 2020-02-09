@@ -58,3 +58,18 @@ PHP-FPM configuration:
     docker run -v "`pwd`/php-fpm-settings.conf:/etc/php7/php-fpm.d/server.conf" trafex/alpine-nginx-php7
 
 _Note; Because `-v` requires an absolute path I've added `pwd` in the example to return the absolute path to the current directory_ 
+
+
+## Adding composer
+
+If you need composer in your project, here's an easy way to add it;
+
+```dockerfile
+FROM trafex/alpine-nginx-php7:latest
+
+# Install composer from the official image
+COPY --from=composer /usr/bin/composer /usr/bin/composer
+
+# Run composer install to install the dependencies
+RUN composer install --optimize-autoloader --no-interaction --no-progress
+```
