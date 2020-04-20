@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+# pipe stderr to stdout and run php-fpm
+exec 2>&1
+exec php-fpm7 -F
