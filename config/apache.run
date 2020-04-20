@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+# pipe stderr to stdout and run apache
+exec 2>&1
+exec httpd -D FOREGROUND -f /etc/apache2/httpd.conf
