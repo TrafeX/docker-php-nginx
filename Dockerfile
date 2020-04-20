@@ -28,9 +28,6 @@ RUN chown -R nobody.nobody /var/www/html && \
   chown -R nobody.nobody /var/lib/nginx && \
   chown -R nobody.nobody /var/log/nginx
 
-# Make the document root a volume
-VOLUME /var/www/html
-
 # Switch to use a non-root user from here on
 USER nobody
 
