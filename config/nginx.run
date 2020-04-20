@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+# pipe stderr to stdout and run nginx
+exec 2>&1
+exec nginx -g 'daemon off;'
