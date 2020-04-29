@@ -57,7 +57,8 @@ COPY config/docker-entrypoint.sh /bin/docker-entrypoint.sh
 RUN mkdir -p /docker-entrypoint-init.d /var/www/html
 
 # Make sure files/folders needed by the processes are accessable when they run under the nobody user
-RUN chown -R nobody.nobody /var/www/ && \
+RUN chown -R nobody.nobody /docker-entrypoint-init.d/ && \
+    chown -R nobody.nobody /var/www/ && \
     # chown -R nobody.nobody /var/www/html && \
     chown -R nobody.nobody /run && \
     chown -R nobody.nobody /var/lib/nginx && \
