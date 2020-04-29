@@ -1,5 +1,6 @@
 FROM alpine:3.11
-LABEL Maintainer="Tim de Pater <code@trafex.nl>" \
+
+LABEL Maintainer="Ernesto Serrano <info@ernesto.es>" \
       Description="Lightweight container with Nginx 1.16 & PHP-FPM 7.3 based on Alpine Linux."
 
 # Install packages
@@ -10,15 +11,15 @@ RUN apk --no-cache add \
         php7-pecl-apcu \
         php7-mysqli \
         php7-pgsql \
-        php7-pdo \
-        php7-pdo_pgsql \
-        php7-pdo_mysql \
-        php7-pdo_sqlite \
+        # php7-pdo \
+        # php7-pdo_pgsql \
+        # php7-pdo_mysql \
+        # php7-pdo_sqlite \
         php7-json \
         php7-openssl \
         php7-curl \
         php7-zlib \
-        php7-bz2 \
+        # php7-bz2 \
         php7-soap \
         php7-xml \
         php7-fileinfo \
@@ -50,10 +51,10 @@ COPY config/fpm-pool.conf /etc/php7/php-fpm.d/www.conf
 COPY config/php.ini /etc/php7/conf.d/custom.ini
 
 # Configure runit boot script
-COPY config/boot.sh /sbin/boot.sh
+COPY config/docker-entrypoint.sh /bin/docker-entrypoint.sh
 
 # Setup document root
-RUN mkdir -p /var/www/html
+RUN mkdir -p /docker-entrypoint-init.d /var/www/html
 
 # Make sure files/folders needed by the processes are accessable when they run under the nobody user
 RUN chown -R nobody.nobody /var/www/html && \
@@ -76,7 +77,7 @@ COPY --chown=nobody config/php.run /etc/service/php/run
 EXPOSE 8080
 
 # Let runit start nginx & php-fpm
-CMD [ "/sbin/boot.sh" ]
+CMD [ "/bin/docker-entrypoint.sh" ]
 
 # Configure a healthcheck to validate that everything is up&running
 HEALTHCHECK --timeout=10s CMD curl --silent --fail http://127.0.0.1:8080/fpm-ping

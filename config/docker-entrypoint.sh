@@ -22,6 +22,23 @@ shutdown() {
   exit
 }
 
+echo "Starting startup scripts in /docker-entrypoint-init.d ..."
+
+for script in $(find /docker-entrypoint-init.d/ -executable -type f); do
+
+    echo >&2 "*** Running: $script"
+    $script
+    retval=$?
+    if [ $retval != 0 ];
+    then
+        echo >&2 "*** Failed with return value: $?"
+        exit $retval
+    fi
+
+done
+echo "Finished startup scripts in /docker-entrypoint-init.d"
+
+echo "Starting runit..."
 exec env - PATH=$PATH runsvdir -P /etc/service &
 
 RUNSVDIR=$!

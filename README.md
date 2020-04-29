@@ -34,6 +34,42 @@ Or mount your own code to be served by PHP-FPM & Nginx
 
     docker run -p 80:8080 -v ~/my-codebase:/var/www/html erseco/alpine-php7-webserver
 
+
+## Adding additional daemons
+You can add additional daemons (e.g. your own app) to the image by creating runit entries. You only have to write a small shell script which runs your daemon, and runit will keep it up and running for you, restarting it when it crashes, etc.
+
+The shell script must be called `run`, must be executable, and is to be placed in the directory `/etc/service/<NAME>`.
+
+Here's an example showing you how a memcached server runit entry can be made.
+
+    #!/bin/sh
+    ### In memcached.sh (make sure this file is chmod +x):
+    # `chpst -u memcache` runs the given command as the user `memcache`.
+    # If you omit that part, the command will be run as root.
+    exec 2>&1 chpst -u memcache /usr/bin/memcached
+
+    ### In Dockerfile:
+    RUN mkdir /etc/service/memcached
+    ADD memcached.sh /etc/service/memcached/run
+
+Note that the shell script must run the daemon **without letting it daemonize/fork it**. Usually, daemons provide a command line flag or a config file option for that.
+
+
+## Running scripts during container startup
+You can set your own scripts during startup, just add your scripts in `/docker-entrypoint-init.d/`. The scripts are run in lexicographic order.
+
+All scripts must exit correctly, e.g. with exit code 0. If any script exits with a non-zero exit code, the booting will fail.
+
+The following example shows how you can add a startup script. This script simply logs the time of boot to the file /tmp/boottime.txt.
+
+    #!/bin/sh
+    ### In logtime.sh (make sure this file is chmod +x):
+    date > /tmp/boottime.txt
+
+    ### In Dockerfile:
+    ADD logtime.sh /docker-entrypoint-init.d/logtime.sh
+
+
 ## Configuration
 In [config/](config/) you'll find the default configuration files for Nginx, PHP and PHP-FPM.
 If you want to extend or customize that you can do so by mounting a configuration file in the correct folder;
