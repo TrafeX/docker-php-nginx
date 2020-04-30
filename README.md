@@ -1,6 +1,6 @@
 # Docker PHP-FPM 7.3 & Nginx 1.16 on Alpine Linux
 Example PHP-FPM 7.3 & Nginx 1.16 setup for Docker, build on [Alpine Linux](http://www.alpinelinux.org/).
-The image is only +/- 35MB large.
+The image is only +/- 25MB large.
 
 Repository: https://github.com/erseco/alpine-php7-webserver
 
