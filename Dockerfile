@@ -39,41 +39,22 @@ RUN apk --no-cache add \
         nginx \
         runit \
         curl \
-    && rm -rf /var/cache/apk/*
+    && rm -rf /var/cache/apk/* \
+    # Remove default server definition
+    && rm /etc/nginx/conf.d/default.conf \
+    # Make sure files/folders needed by the processes are accessable when they run under the nobody user
+    && chown -R nobody.nobody /run \
+    && chown -R nobody.nobody /var/lib/nginx \
+    && chown -R nobody.nobody /var/log/nginx
 
-# Configure nginx
-COPY config/nginx.conf /etc/nginx/nginx.conf
-# Remove default server definition
-RUN rm /etc/nginx/conf.d/default.conf
-
-# Configure PHP-FPM
-COPY config/fpm-pool.conf /etc/php7/php-fpm.d/www.conf
-COPY config/php.ini /etc/php7/conf.d/custom.ini
-
-# Configure runit boot script
-COPY config/docker-entrypoint.sh /bin/docker-entrypoint.sh
-
-# Setup document root
-RUN mkdir -p /docker-entrypoint-init.d /var/www/html
-
-# Make sure files/folders needed by the processes are accessable when they run under the nobody user
-RUN chown -R nobody.nobody /docker-entrypoint-init.d/ && \
-    chown -R nobody.nobody /var/www/ && \
-    # chown -R nobody.nobody /var/www/html && \
-    chown -R nobody.nobody /run && \
-    chown -R nobody.nobody /var/lib/nginx && \
-    chown -R nobody.nobody /var/log/nginx
+# Add configuration files
+COPY --chown=nobody config/ /
 
 # Switch to use a non-root user from here on
 USER nobody
 
 # Add application
 WORKDIR /var/www/html
-COPY --chown=nobody src/ /var/www/html/
-
-# Add runit boot scripts
-COPY --chown=nobody config/nginx.run /etc/service/nginx/run
-COPY --chown=nobody config/php.run /etc/service/php/run
 
 # Expose the port nginx is reachable on
 EXPOSE 8080
