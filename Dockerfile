@@ -42,6 +42,8 @@ COPY --chown=nobody src/ /var/www/html/
 COPY --chown=nobody config/nginx.run /etc/service/nginx/run
 COPY --chown=nobody config/php.run /etc/service/php/run
 
+RUN chmod +x /etc/service/nginx/run && chmod +x /etc/service/php/run
+
 # Expose the port nginx is reachable on
 EXPOSE 8080
 
