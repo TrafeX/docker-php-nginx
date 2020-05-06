@@ -48,7 +48,7 @@ RUN apk --no-cache add \
     && chown -R nobody.nobody /var/log/nginx
 
 # Add configuration files
-COPY --chown=nobody config/ /
+COPY --chown=nobody rootfs/ /
 
 # Switch to use a non-root user from here on
 USER nobody
