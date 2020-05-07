@@ -39,7 +39,6 @@ RUN apk --no-cache add \
         nginx \
         runit \
         curl \
-
 # Bring in gettext so we can get `envsubst`, then throw
 # the rest away. To do this, we need to install `gettext`
 # then move `envsubst` out of the way so `gettext` can
@@ -95,4 +94,4 @@ ENV client_max_body_size=2M \
     memory_limit=128M \
     post_max_size=8M \
     upload_max_filesize=2M \
-    zlib.output_compression=Off
+    zlib.output_compression=On
