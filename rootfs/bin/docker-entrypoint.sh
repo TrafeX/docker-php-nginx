@@ -39,7 +39,7 @@ done
 echo "Finished startup scripts in /docker-entrypoint-init.d"
 
 echo "Starting runit..."
-exec env - PATH=$PATH runsvdir -P /etc/service &
+exec runsvdir -P /etc/service &
 
 RUNSVDIR=$!
 echo "Started runsvdir, PID is $RUNSVDIR"

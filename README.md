@@ -6,7 +6,7 @@ Repository: https://github.com/erseco/alpine-php7-webserver
 
 
 * Built on the lightweight and secure Alpine Linux distribution
-* Very small Docker image size (+/-35MB)
+* Very small Docker image size (+/-25MB)
 * Uses PHP 7.3 for better performance, lower cpu usage & memory footprint
 * Optimized for 100 concurrent users
 * Optimized to only use resources when there's traffic (by using PHP-FPM's ondemand PM)
@@ -71,7 +71,7 @@ The following example shows how you can add a startup script. This script simply
 
 
 ## Configuration
-In [config/](config/) you'll find the default configuration files for Nginx, PHP and PHP-FPM.
+In [rootfs/etc/](rootfs/etc/) you'll find the default configuration files for Nginx, PHP and PHP-FPM.
 If you want to extend or customize that you can do so by mounting a configuration file in the correct folder;
 
 Nginx configuration:
@@ -88,6 +88,26 @@ PHP-FPM configuration:
 
 _Note; Because `-v` requires an absolute path I've added `pwd` in the example to return the absolute path to the current directory_
 
+## Environment variables
+
+You can define the next environment variables to change values from NGINX and PHP
+
+| Server | Variable Name           | Default | description                                                                                                                                                                                                                                            |
+|--------|-------------------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| NGINX  | client_max_body_size    | 2m      | Sets the maximum allowed size of the client request body, specified in the “Content-Length” request header field.                                                                                                                                      |
+| PHP7   | allow_url_fopen         | On      | This option enables the URL-aware fopen wrappers that enable accessing URL object like files. Default wrappers are provided for the access of remote files using the ftp or http protocol, some extensions like zlib may register additional wrappers. |
+| PHP7   | allow_url_include       | Off     | This option allows the use of URL-aware fopen wrappers with the following functions: include(), include_once(), require(), require_once().                                                                                                             |
+| PHP7   | display_errors          | Off     | This determines whether errors should be printed to the screen as part of the output or if they should be hidden from the user.                                                                                                                        |
+| PHP7   | file_uploads            | On      | Whether or not to allow HTTP file uploads.                                                                                                                                                                                                             |
+| PHP7   | max_execution_time      | 0       | This sets the maximum time in seconds a script is allowed to run before it is terminated by the parser. This helps prevent poorly written scripts from tying up the server. The default setting is 30.                                                 |
+| PHP7   | max_input_time          | -1      | This sets the maximum time in seconds a script is allowed to parse input data, like POST, GET and file uploads.                                                                                                                                        |
+| PHP7   | max_input_vars          | 1000    | This sets the maximum number of input variables allowed per request and can be used to deter denial of service attacks involving hash collisions on the input variable names.                                                                          |
+| PHP7   | memory_limit            | 128M    | This sets the maximum amount of memory in bytes that a script is allowed to allocate. This helps prevent poorly written scripts for eating up all available memory on a server. Note that to have no memory limit, set this directive to -1.           |
+| PHP7   | post_max_size           | 8M      | Sets max size of post data allowed. This setting also affects file upload. To upload large files, this value must be larger than upload_max_filesize. Generally speaking, memory_limit should be larger than post_max_size.                            |
+| PHP7   | upload_max_filesize     | 2M      | The maximum size of an uploaded file.                                                                                                                                                                                                                  |
+| PHP7   | zlib.output_compression | On      | Whether to transparently compress pages. If this option is set to "On" in php.ini or the Apache configuration, pages are compressed if the browser sends an "Accept-Encoding: gzip" or "deflate" header.                                               |
+
+
 
 ## Adding composer
 
@@ -95,10 +115,10 @@ If you need composer in your project, here's an easy way to add it;
 
 ```dockerfile
 FROM erseco/alpine-php7-webserver:latest
-
+USER root
 # Install composer from the official image
-COPY --from=composer /usr/bin/composer /usr/bin/composer
-
+RUN apk add --no-cache composer
+USER nobody
 # Run composer install to install the dependencies
 RUN composer install --optimize-autoloader --no-interaction --no-progress
 ```

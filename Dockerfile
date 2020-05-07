@@ -39,10 +39,28 @@ RUN apk --no-cache add \
         nginx \
         runit \
         curl \
+# Bring in gettext so we can get `envsubst`, then throw
+# the rest away. To do this, we need to install `gettext`
+# then move `envsubst` out of the way so `gettext` can
+# be deleted completely, then move `envsubst` back.
+    && apk add --no-cache --virtual .gettext gettext \
+    && mv /usr/bin/envsubst /tmp/ \
+    \
+    && runDeps="$( \
+        scanelf --needed --nobanner /tmp/envsubst \
+            | awk '{ gsub(/,/, "\nso:", $2); print "so:" $2 }' \
+            | sort -u \
+            | xargs -r apk info --installed \
+            | sort -u \
+    )" \
+    && apk add --no-cache $runDeps \
+    && apk del .gettext \
+    && mv /tmp/envsubst /usr/local/bin/ \
+# Remove alpine cache
     && rm -rf /var/cache/apk/* \
-    # Remove default server definition
+# Remove default server definition
     && rm /etc/nginx/conf.d/default.conf \
-    # Make sure files/folders needed by the processes are accessable when they run under the nobody user
+# Make sure files/folders needed by the processes are accessable when they run under the nobody user
     && chown -R nobody.nobody /run \
     && chown -R nobody.nobody /var/lib/nginx \
     && chown -R nobody.nobody /var/log/nginx
@@ -64,3 +82,16 @@ CMD [ "/bin/docker-entrypoint.sh" ]
 
 # Configure a healthcheck to validate that everything is up&running
 HEALTHCHECK --timeout=10s CMD curl --silent --fail http://127.0.0.1:8080/fpm-ping
+
+ENV client_max_body_size=2M \
+    allow_url_fopen=On \
+    allow_url_include=Off \
+    display_errors=Off \
+    file_uploads=On \
+    max_execution_time=0 \
+    max_input_time=-1 \
+    max_input_vars=1000 \
+    memory_limit=128M \
+    post_max_size=8M \
+    upload_max_filesize=2M \
+    zlib.output_compression=On
