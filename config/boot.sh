@@ -22,7 +22,7 @@ shutdown() {
   exit
 }
 
-exec env - PATH=$PATH runsvdir -P /etc/service &
+exec runsvdir -P /etc/service &
 
 RUNSVDIR=$!
 echo "Started runsvdir, PID is $RUNSVDIR"
