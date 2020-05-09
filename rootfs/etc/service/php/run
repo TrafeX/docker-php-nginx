@@ -5,6 +5,10 @@ tmpfile=$(mktemp)
 cat /etc/php7/conf.d/custom.ini | envsubst "$(env | cut -d= -f1 | sed -e 's/^/$/')" | tee "$tmpfile" > /dev/null
 mv "$tmpfile" /etc/php7/conf.d/custom.ini
 
-# pipe stderr to stdout and run php-fpm omiting ENV vars to avoid security leaks
+tmpfile=$(mktemp)
+cat /etc/php7/php-fpm.d/www.conf | envsubst "$(env | cut -d= -f1 | sed -e 's/^/$/')" | tee "$tmpfile" > /dev/null
+mv "$tmpfile" /etc/php7/php-fpm.d/www.conf
+
+# pipe stderr to stdout and run php-fpm
 exec 2>&1
-exec env - PATH=$PATH php-fpm7 -F
+exec php-fpm7 -F

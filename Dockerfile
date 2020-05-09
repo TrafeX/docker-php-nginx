@@ -84,6 +84,7 @@ CMD [ "/bin/docker-entrypoint.sh" ]
 HEALTHCHECK --timeout=10s CMD curl --silent --fail http://127.0.0.1:8080/fpm-ping
 
 ENV client_max_body_size=2M \
+    clear_env=no \
     allow_url_fopen=On \
     allow_url_include=Off \
     display_errors=Off \
