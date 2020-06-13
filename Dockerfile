@@ -5,7 +5,7 @@ LABEL Maintainer="Tim de Pater <code@trafex.nl>" \
 # Install packages and remove default server definition
 RUN apk --no-cache add php7 php7-fpm php7-opcache php7-mysqli php7-json php7-openssl php7-curl \
     php7-zlib php7-xml php7-phar php7-intl php7-dom php7-xmlreader php7-ctype php7-session \
-    php7-mbstring php7-gd nginx supervisor curl && \
+    php7-mbstring php7-gd nginx curl tini && \
     rm /etc/nginx/conf.d/default.conf
 
 # Configure nginx
@@ -14,6 +14,9 @@ COPY config/nginx.conf /etc/nginx/nginx.conf
 # Configure PHP-FPM
 COPY config/fpm-pool.conf /etc/php7/php-fpm.d/www.conf
 COPY config/php.ini /etc/php7/conf.d/custom.ini
+
+# Install a golang port of supervisord
+COPY --from=ochinchina/supervisord:latest /usr/local/bin/supervisord /usr/bin/supervisord
 
 # Configure supervisord
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
