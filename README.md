@@ -1,5 +1,5 @@
-# Docker PHP-FPM 7.3 & Nginx 1.16 on Alpine Linux
-Example PHP-FPM 7.3 & Nginx 1.16 setup for Docker, build on [Alpine Linux](http://www.alpinelinux.org/).
+# Docker PHP-FPM 7.3 & Nginx 1.18 on Alpine Linux
+Example PHP-FPM 7.3 & Nginx 1.18 setup for Docker, build on [Alpine Linux](http://www.alpinelinux.org/).
 The image is only +/- 35MB large.
 
 Repository: https://github.com/TrafeX/docker-php-nginx
@@ -17,7 +17,7 @@ Repository: https://github.com/TrafeX/docker-php-nginx
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/trafex/alpine-nginx-php7.svg)](https://hub.docker.com/r/trafex/alpine-nginx-php7/)
 [![Docker image layers](https://images.microbadger.com/badges/image/trafex/alpine-nginx-php7.svg)](https://microbadger.com/images/trafex/alpine-nginx-php7)
-![nginx 1.16.1](https://img.shields.io/badge/nginx-1.16-brightgreen.svg)
+![nginx 1.18.0](https://img.shields.io/badge/nginx-1.18-brightgreen.svg)
 ![php 7.3](https://img.shields.io/badge/php-7.3-brightgreen.svg)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
@@ -57,7 +57,7 @@ PHP-FPM configuration:
 
     docker run -v "`pwd`/php-fpm-settings.conf:/etc/php7/php-fpm.d/server.conf" trafex/alpine-nginx-php7
 
-_Note; Because `-v` requires an absolute path I've added `pwd` in the example to return the absolute path to the current directory_ 
+_Note; Because `-v` requires an absolute path I've added `pwd` in the example to return the absolute path to the current directory_
 
 
 ## Adding composer
