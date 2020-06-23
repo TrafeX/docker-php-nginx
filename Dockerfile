@@ -1,4 +1,5 @@
-FROM alpine:3.12
+ARG ARCH=
+FROM ${ARCH}alpine:3.12
 
 LABEL Maintainer="Ernesto Serrano <info@ernesto.es>" \
       Description="Lightweight container with Nginx 1.16 & PHP-FPM 7.3 based on Alpine Linux."
