@@ -1,3 +1,6 @@
 #!/bin/sh
-DOCKER_CLI_EXPERIMENTAL=enabled docker buildx install
+export DOCKER_CLI_EXPERIMENTAL=enabled
+DOCKER_CLI_EXPERIMENTAL=enabled docker buildx create --name multibuilder
+DOCKER_CLI_EXPERIMENTAL=enabled docker buildx use multibuilder
+#DOCKER_CLI_EXPERIMENTAL=enabled docker buildx install
 DOCKER_CLI_EXPERIMENTAL=enabled docker buildx build --push --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --tag erseco/alpine-php7-webserver:beta .
