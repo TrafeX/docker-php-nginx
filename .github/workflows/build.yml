@@ -18,15 +18,15 @@ jobs:
           VERSION=edge
 
           if [[ $GITHUB_REF == refs/tags/* ]]; then
-            VERSION=${GITHUB_REF#refs/tags/v}
-          fi
-          if [ "${{ github.event_name }}" = "schedule" ]; then
-            VERSION=nightly
+            VERSION=${GITHUB_REF#refs/tags}
           fi
 
           TAGS="--tag ${DOCKER_IMAGE}:${VERSION}"
           if [[ $VERSION =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
             TAGS="$TAGS --tag ${DOCKER_IMAGE}:latest"
+          fi
+          if [[ $VERSION = "master" ]]; then
+            TAGS="$TAGS --tag ${DOCKER_IMAGE}:beta"
           fi
 
           echo ::set-output name=docker_image::${DOCKER_IMAGE}
@@ -35,7 +35,7 @@ jobs:
             --build-arg VERSION=${VERSION} \
             --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') \
             --build-arg VCS_REF=${GITHUB_SHA::8} \
-            ${TAGS} --file ./test/Dockerfile ./test
+            ${TAGS} .
 
       - name: Set up Docker Buildx
         uses: crazy-max/ghaction-docker-buildx@v3
