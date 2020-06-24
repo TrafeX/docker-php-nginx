@@ -17,7 +17,7 @@ jobs:
           DOCKER_IMAGE=erseco/alpine-php7-webserver
           DOCKER_PLATFORMS=linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/386,linux/ppc64le,linux/s390x
 
-          VERSION=${GITHUB_REF#refs/*/
+          VERSION=${GITHUB_REF#refs/*/}
           TAGS="--tag ${DOCKER_IMAGE}:${VERSION}"
 
           if [[ $GITHUB_REF == refs/tags/* ]]; then
@@ -26,6 +26,8 @@ jobs:
           if [[ $VERSION = "master" ]]; then
             TAGS="$TAGS --tag ${DOCKER_IMAGE}:beta"
           fi
+
+
 
           echo ::set-output name=docker_image::${DOCKER_IMAGE}
           echo ::set-output name=version::${VERSION}
