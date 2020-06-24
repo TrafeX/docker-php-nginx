@@ -44,6 +44,10 @@ jobs:
         run: |
           docker buildx build --output "type=image,push=false" ${{ steps.prepare.outputs.buildx_args }}
 
+      - name: Test
+        run: |
+          docker-compose --file docker-compose.test.yml up --build
+
       - name: Docker Login
         if: success()
         env:
