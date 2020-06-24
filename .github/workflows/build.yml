@@ -46,7 +46,7 @@ jobs:
 
       - name: Test
         run: |
-          docker-compose --file docker-compose.test.yml up --build
+          docker-compose --file docker-compose.test.yml up --timeout 10 --build
 
       - name: Docker Login
         if: success()
