@@ -2,6 +2,7 @@ name: buildx
 
 on:
   push:
+  pull_request:
 
 jobs:
   buildx:
@@ -13,21 +14,23 @@ jobs:
       - name: Prepare
         id: prepare
         run: |
-          DOCKER_IMAGE=crazymax/diun
+          DOCKER_IMAGE=erseco/alpine-php7-webserver
           DOCKER_PLATFORMS=linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/386,linux/ppc64le,linux/s390x
-          VERSION=edge
+
+          echo ::set-output name=SOURCE_NAME::${GITHUB_REF#refs/*/}
+          echo ::set-output name=SOURCE_BRANCH::${GITHUB_REF#refs/heads/}
+          echo ::set-output name=SOURCE_TAG::${GITHUB_REF#refs/tags/}
+
+          VERSION=$SOURCE_NAME
 
           if [[ $GITHUB_REF == refs/tags/* ]]; then
-            VERSION=${GITHUB_REF#refs/tags}
-          fi
-
-          TAGS="--tag ${DOCKER_IMAGE}:${VERSION}"
-          if [[ $VERSION =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
             TAGS="$TAGS --tag ${DOCKER_IMAGE}:latest"
           fi
           if [[ $VERSION = "master" ]]; then
             TAGS="$TAGS --tag ${DOCKER_IMAGE}:beta"
           fi
+
+          TAGS="--tag ${DOCKER_IMAGE}:${VERSION}"
 
           echo ::set-output name=docker_image::${DOCKER_IMAGE}
           echo ::set-output name=version::${VERSION}
@@ -40,26 +43,30 @@ jobs:
       - name: Set up Docker Buildx
         uses: crazy-max/ghaction-docker-buildx@v3
 
+      - name: Docker Buildx (build)
+        run: |
+          docker buildx build --output "type=image,push=true" ${{ steps.prepare.outputs.buildx_args }}
+
       - name: Docker Login
         if: success()
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
         run: |
-          echo "${DOCKER_PASSWORD}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
+          echo "${DOCKER_PASSWORD}" | docker login --username "${DOCKER_USERNAME}" --password-stdin docker.io
 
-      - name: Docker Buildx (build & push)
+      - name: Docker Buildx (push)
+        if: success() && github.event_name != 'pull_request'
         run: |
           docker buildx build --output "type=image,push=true" ${{ steps.prepare.outputs.buildx_args }}
 
-
       - name: Docker Check Manifest
-        if: always()
+        if: always() && github.event_name != 'pull_request'
         run: |
           docker run --rm mplatform/mquery ${{ steps.prepare.outputs.docker_image }}:${{ steps.prepare.outputs.version }}
 
       - name: Clear
-        if: always()
+        if: always() && github.event_name != 'pull_request'
         run: |
           rm -f ${HOME}/.docker/config.json
 
