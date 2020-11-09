@@ -2,7 +2,7 @@ ARG ARCH=
 FROM ${ARCH}alpine:3.12
 
 LABEL Maintainer="Ernesto Serrano <info@ernesto.es>" \
-      Description="Lightweight container with Nginx 1.16 & PHP-FPM 7.3 based on Alpine Linux."
+      Description="Lightweight container with Nginx 1.18 & PHP-FPM 7.3 based on Alpine Linux."
 
 # Install packages
 RUN apk --no-cache add \
@@ -61,6 +61,7 @@ RUN apk --no-cache add \
     && rm -rf /var/cache/apk/* \
 # Remove default server definition
     && rm /etc/nginx/conf.d/default.conf \
+
 # Make sure files/folders needed by the processes are accessable when they run under the nobody user
     && chown -R nobody.nobody /run \
     && chown -R nobody.nobody /var/lib/nginx \

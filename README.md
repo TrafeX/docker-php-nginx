@@ -1,6 +1,8 @@
-# Docker PHP-FPM 7.3 & Nginx 1.16 on Alpine Linux
-Example PHP-FPM 7.3 & Nginx 1.16 setup for Docker, build on [Alpine Linux](http://www.alpinelinux.org/).
+
+# Docker PHP-FPM 7.3 & Nginx 1.18 on Alpine Linux
+Example PHP-FPM 7.3 & Nginx 1.18 setup for Docker, build on [Alpine Linux](https://www.alpinelinux.org/).
 The image is only +/- 25MB large.
+
 
 Repository: https://github.com/erseco/alpine-php7-webserver
 
@@ -19,7 +21,7 @@ Repository: https://github.com/erseco/alpine-php7-webserver
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/erseco/alpine-php7-webserver.svg)](https://hub.docker.com/r/erseco/alpine-php7-webserver/)
 [![Docker image layers](https://images.microbadger.com/badges/image/erseco/alpine-php7-webserver.svg)](https://microbadger.com/images/erseco/alpine-php7-webserver)
-![nginx 1.16.1](https://img.shields.io/badge/nginx-1.16-brightgreen.svg)
+![nginx 1.18.0](https://img.shields.io/badge/nginx-1.18-brightgreen.svg)
 ![php 7.3](https://img.shields.io/badge/php-7.3-brightgreen.svg)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
@@ -109,11 +111,12 @@ You can define the next environment variables to change values from NGINX and PH
 | PHP7   | upload_max_filesize     | 2M      | Maximum size of an uploaded file.                                                                                                                                                                                                                      |
 | PHP7   | zlib.output_compression | On      | Whether to transparently compress pages. If this option is set to "On" in php.ini or the Apache configuration, pages are compressed if the browser sends an "Accept-Encoding: gzip" or "deflate" header.                                               |
 
+_Note; Because `-v` requires an absolute path I've added `pwd` in the example to return the absolute path to the current directory_
 
 
 ## Adding composer
 
-If you need composer in your project, here's an easy way to add it;
+If you need [Composer](https://getcomposer.org/) in your project, here's an easy way to add it.
 
 ```dockerfile
 FROM erseco/alpine-php7-webserver:latest
@@ -123,4 +126,27 @@ RUN apk add --no-cache composer
 USER nobody
 # Run composer install to install the dependencies
 RUN composer install --optimize-autoloader --no-interaction --no-progress
+```
+
+### Building with composer
+
+If you are building an image with source code in it and dependencies managed by composer then the definition can be improved.
+The dependencies should be retrieved by the composer but the composer itself (`/usr/bin/composer`) is not necessary to be included in the image.
+
+```Dockerfile
+FROM composer AS composer
+
+# copying the source directory and install the dependencies with composer
+COPY <your_directory>/ /app
+
+# run composer install to install the dependencies
+RUN composer install \
+  --optimize-autoloader \
+  --no-interaction \
+  --no-progress
+
+# continue stage build with the desired image and copy the source including the
+# dependencies downloaded by composer
+FROM trafex/alpine-nginx-php7
+COPY --chown=nginx --from=composer /app /var/www/html
 ```
