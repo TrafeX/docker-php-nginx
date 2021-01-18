@@ -53,7 +53,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and push
+      - name: Build
         id: docker_build
         uses: docker/build-push-action@v2
         # with:
@@ -68,9 +68,17 @@ jobs:
       #   run: |
       #     docker build --output "type=image,push=false" ${{ steps.prepare.outputs.buildx_args }}
 
-      # - name: Test
-      #   run: |
-      #     docker-compose --file docker-compose.test.yml up --exit-code-from sut --timeout 10 --build
+      - name: Test
+        run: |
+          docker-compose --file docker-compose.test.yml up --exit-code-from sut --timeout 10 --build
+
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: ${TAGS}
+
 
       # - name: Docker Login
       #   if: success()
