@@ -17,20 +17,20 @@ jobs:
           DOCKER_PLATFORMS=linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/386,linux/ppc64le,linux/s390x
 
           VERSION=${GITHUB_REF#refs/*/}
-          TAGS="${REPO_NAME}:${VERSION}"
+          TAGS="erseco/${REPO_NAME}:${VERSION}"
 
           if [[ $GITHUB_REF == refs/tags/* ]]; then
-            TAGS="$TAGS,${REPO_NAME}:latest"
+            TAGS="$TAGS,erseco/${REPO_NAME}:latest"
           fi
           if [[ $VERSION = "master" ]]; then
-            TAGS="$TAGS,${REPO_NAME}:beta"
+            TAGS="$TAGS,erseco/${REPO_NAME}:beta"
           fi
 
           echo ::set-output name=platforms::${DOCKER_PLATFORMS}
           echo ::set-output name=tags::${TAGS}
 
         env:
-          REPO_NAME: ${{ github.event.repository }}
+          REPO_NAME: ${{ github.event.repository.name }}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
