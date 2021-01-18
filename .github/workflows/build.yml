@@ -72,6 +72,7 @@ jobs:
         # id: docker_build
         uses: docker/build-push-action@v2
         with:
+          context: .
           push: ${{ github.event_name != 'pull_request' }}
           # tags: ${{ steps.prepare.outputs.tags }}
           tags: beta
