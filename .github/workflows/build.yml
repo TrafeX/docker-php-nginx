@@ -75,7 +75,7 @@ jobs:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
           # tags: ${{ steps.prepare.outputs.tags }}
-          tags: beta
+          tags: erseco/alpine-php7-webserver:beta
           # platforms: ${{ steps.prepare.outputs.platforms }}
 
       # - name: Docker Login
