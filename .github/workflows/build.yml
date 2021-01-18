@@ -17,14 +17,14 @@ jobs:
           DOCKER_PLATFORMS=linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/386,linux/ppc64le,linux/s390x
 
           VERSION=${GITHUB_REF#refs/*/}
-          TAGS="${VERSION}"
+          TAGS="${{ github.event.repository.name }}:${VERSION}"
 
-          # if [[ $GITHUB_REF == refs/tags/* ]]; then
-          #   TAGS="$TAGS,latest"
-          # fi
-          # if [[ $VERSION = "master" ]]; then
-          #   TAGS="$TAGS,beta"
-          # fi
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            TAGS="$TAGS,${{ github.event.repository.name }}:latest"
+          fi
+          if [[ $VERSION = "master" ]]; then
+            TAGS="$TAGS,${{ github.event.repository.name }}:beta"
+          fi
 
           echo ::set-output name=platforms::${DOCKER_PLATFORMS}
           echo ::set-output name=tags::${TAGS}
@@ -74,8 +74,8 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          # tags: ${{ steps.prepare.outputs.tags }}
-          tags: erseco/alpine-php7-webserver:beta
+          tags: ${{ steps.prepare.outputs.tags }}
+          # tags: erseco/alpine-php7-webserver:beta
           platforms: ${{ steps.prepare.outputs.platforms }}
 
       # - name: Docker Login
