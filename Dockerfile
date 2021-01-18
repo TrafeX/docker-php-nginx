@@ -1,8 +1,8 @@
 ARG ARCH=
-FROM ${ARCH}alpine:3.12
+FROM ${ARCH}alpine:3.13
 
 LABEL Maintainer="Ernesto Serrano <info@ernesto.es>" \
-      Description="Lightweight container with Nginx 1.18 & PHP-FPM 7.3 based on Alpine Linux."
+      Description="Lightweight container with Nginx & PHP-FPM based on Alpine Linux."
 
 # Install packages
 RUN apk --no-cache add \
