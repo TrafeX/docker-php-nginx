@@ -54,7 +54,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build
-        id: docker_build
+        # id: docker_build
         uses: docker/build-push-action@v2
         # with:
           # push: true
@@ -73,7 +73,7 @@ jobs:
           docker-compose --file docker-compose.test.yml up --exit-code-from sut --timeout 10 --build
 
       - name: Build and push
-        id: docker_build
+        # id: docker_build
         uses: docker/build-push-action@v2
         with:
           push: true
