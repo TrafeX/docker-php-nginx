@@ -48,7 +48,10 @@ jobs:
 
       - name: Build
         # id: docker_build
-        uses: docker/build-push-action@v2
+        # uses: docker/build-push-action@v2
+        run: |
+          docker build .
+
         # with:
           # push: true
           # tags: user/app:latest
@@ -70,8 +73,9 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.prepare.outputs.tags }}
-          platforms: ${{ steps.prepare.outputs.platforms }}
+          # tags: ${{ steps.prepare.outputs.tags }}
+          tags: beta
+          # platforms: ${{ steps.prepare.outputs.platforms }}
 
       # - name: Docker Login
       #   if: success()
