@@ -26,6 +26,7 @@ jobs:
             TAGS="$TAGS,beta"
           fi
 
+          echo ::set-output name=platforms::${DOCKER_PLATFORMS}
           echo ::set-output name=tags::${TAGS}
 
       - name: Set up QEMU
@@ -70,6 +71,7 @@ jobs:
         with:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.prepare.outputs.tags }}
+          platforms: ${{ steps.prepare.outputs.platforms }}
 
       # - name: Docker Login
       #   if: success()
