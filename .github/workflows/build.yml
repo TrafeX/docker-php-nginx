@@ -19,12 +19,12 @@ jobs:
           VERSION=${GITHUB_REF#refs/*/}
           TAGS="${VERSION}"
 
-          if [[ $GITHUB_REF == refs/tags/* ]]; then
-            TAGS="$TAGS,latest"
-          fi
-          if [[ $VERSION = "master" ]]; then
-            TAGS="$TAGS,beta"
-          fi
+          # if [[ $GITHUB_REF == refs/tags/* ]]; then
+          #   TAGS="$TAGS,latest"
+          # fi
+          # if [[ $VERSION = "master" ]]; then
+          #   TAGS="$TAGS,beta"
+          # fi
 
           echo ::set-output name=platforms::${DOCKER_PLATFORMS}
           echo ::set-output name=tags::${TAGS}
@@ -69,7 +69,7 @@ jobs:
         # id: docker_build
         uses: docker/build-push-action@v2
         with:
-          # push: ${{ github.event_name != 'pull_request' }}
+          push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.prepare.outputs.tags }}
           platforms: ${{ steps.prepare.outputs.platforms }}
 
