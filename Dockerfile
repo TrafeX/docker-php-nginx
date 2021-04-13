@@ -1,19 +1,19 @@
 FROM alpine:3.13
 LABEL Maintainer="Tim de Pater <code@trafex.nl>" \
-      Description="Lightweight container with Nginx 1.18 & PHP 7.4 based on Alpine Linux."
+      Description="Lightweight container with Nginx 1.18 & PHP 8.0 based on Alpine Linux."
 
 # Install packages and remove default server definition
-RUN apk --no-cache add php7 php7-fpm php7-opcache php7-mysqli php7-json php7-openssl php7-curl \
-    php7-zlib php7-xml php7-phar php7-intl php7-dom php7-xmlreader php7-ctype php7-session \
-    php7-mbstring php7-gd nginx supervisor curl && \
+RUN apk --no-cache add php8 php8-fpm php8-opcache php8-mysqli php8-json php8-openssl php8-curl \
+    php8-zlib php8-xml php8-phar php8-intl php8-dom php8-xmlreader php8-ctype php8-session \
+    php8-mbstring php8-gd nginx supervisor curl && \
     rm /etc/nginx/conf.d/default.conf
 
 # Configure nginx
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
 # Configure PHP-FPM
-COPY config/fpm-pool.conf /etc/php7/php-fpm.d/www.conf
-COPY config/php.ini /etc/php7/conf.d/custom.ini
+COPY config/fpm-pool.conf /etc/php8/php-fpm.d/www.conf
+COPY config/php.ini /etc/php8/conf.d/custom.ini
 
 # Configure supervisord
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
