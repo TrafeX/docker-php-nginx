@@ -58,7 +58,8 @@ jobs:
 
       - name: Test
         run: |
-          docker-compose --file docker-compose.test.yml up --exit-code-from sut --timeout 10 --build --no-cache
+          docker-compose --file docker-compose.test.yml build --no-cache
+          docker-compose --file docker-compose.test.yml up --exit-code-from sut --timeout 10 --build
 
       - name: Build and push
         uses: docker/build-push-action@v2
