@@ -1,6 +1,6 @@
 
 # Docker PHP-FPM 7.4 & Nginx 1.18 on Alpine Linux
-Example PHP-FPM 7.4 & Nginx 1.18 setup for Docker, build on [Alpine Linux](https://www.alpinelinux.org/).
+Example PHP-FPM 8.0 & Nginx 1.18 setup for Docker, build on [Alpine Linux](https://www.alpinelinux.org/).
 The image is only +/- 25MB large.
 
 
@@ -9,7 +9,7 @@ Repository: https://github.com/erseco/alpine-php7-webserver
 
 * Built on the lightweight and secure Alpine Linux distribution
 * Very small Docker image size (+/-25MB)
-* Uses PHP 7.4 for better performance, lower cpu usage & memory footprint
+* Uses PHP 8.0 for better performance, lower cpu usage & memory footprint
 * Multi-arch support: 386, amd64, arm/v6, arm/v7, arm64, ppc64le, s390x
 * Optimized for 100 concurrent users
 * Optimized to only use resources when there's traffic (by using PHP-FPM's ondemand PM)
@@ -22,7 +22,7 @@ Repository: https://github.com/erseco/alpine-php7-webserver
 [![Docker Pulls](https://img.shields.io/docker/pulls/erseco/alpine-php7-webserver.svg)](https://hub.docker.com/r/erseco/alpine-php7-webserver/)
 [![Docker image layers](https://images.microbadger.com/badges/image/erseco/alpine-php7-webserver.svg)](https://microbadger.com/images/erseco/alpine-php7-webserver)
 ![nginx 1.18.0](https://img.shields.io/badge/nginx-1.18-brightgreen.svg)
-![php 7.4](https://img.shields.io/badge/php-7.4-brightgreen.svg)
+![php 8.0](https://img.shields.io/badge/php-7.4-brightgreen.svg)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ## Usage

@@ -2,13 +2,13 @@
 
 # Replace ENV vars in configuration files
 tmpfile=$(mktemp)
-cat /etc/php7/conf.d/custom.ini | envsubst "$(env | cut -d= -f1 | sed -e 's/^/$/')" | tee "$tmpfile" > /dev/null
-mv "$tmpfile" /etc/php7/conf.d/custom.ini
+cat /etc/php8/conf.d/custom.ini | envsubst "$(env | cut -d= -f1 | sed -e 's/^/$/')" | tee "$tmpfile" > /dev/null
+mv "$tmpfile" /etc/php8/conf.d/custom.ini
 
 tmpfile=$(mktemp)
-cat /etc/php7/php-fpm.d/www.conf | envsubst "$(env | cut -d= -f1 | sed -e 's/^/$/')" | tee "$tmpfile" > /dev/null
-mv "$tmpfile" /etc/php7/php-fpm.d/www.conf
+cat /etc/php8/php-fpm.d/www.conf | envsubst "$(env | cut -d= -f1 | sed -e 's/^/$/')" | tee "$tmpfile" > /dev/null
+mv "$tmpfile" /etc/php8/php-fpm.d/www.conf
 
 # pipe stderr to stdout and run php-fpm
 exec 2>&1
-exec php-fpm7 -F
+exec php-fpm8 -F

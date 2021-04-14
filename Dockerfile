@@ -6,40 +6,39 @@ LABEL Maintainer="Ernesto Serrano <info@ernesto.es>" \
 
 # Install packages
 RUN apk --no-cache add \
-        php7 \
-        php7-fpm \
-        php7-opcache \
-        php7-pecl-apcu \
-        php7-mysqli \
-        php7-pgsql \
-        php7-json \
-        php7-openssl \
-        php7-curl \
-        php7-zlib \
-        php7-soap \
-        php7-xml \
-        php7-fileinfo \
-        php7-phar \
-        php7-intl \
-        php7-dom \
-        php7-xmlreader \
-        php7-ctype \
-        php7-session \
-        php7-iconv \
-        php7-tokenizer \
-        php7-xmlrpc \
-        php7-zip \
-        php7-simplexml \
-        php7-mbstring \
-        php7-gd \
+        php8 \
+        php8-fpm \
+        php8-opcache \
+        php8-pecl-apcu \
+        php8-mysqli \
+        php8-pgsql \
+        php8-json \
+        php8-openssl \
+        php8-curl \
+        php8-zlib \
+        php8-soap \
+        php8-xml \
+        php8-fileinfo \
+        php8-phar \
+        php8-intl \
+        php8-dom \
+        php8-xmlreader \
+        php8-ctype \
+        php8-session \
+        php8-iconv \
+        php8-tokenizer \
+        php8-zip \
+        php8-simplexml \
+        php8-mbstring \
+        php8-gd \
         nginx \
         runit \
         curl \
-        # php7-pdo \
-        # php7-pdo_pgsql \
-        # php7-pdo_mysql \
-        # php7-pdo_sqlite \
-        # php7-bz2 \
+        # php8-pdo \
+        # php8-pdo_pgsql \
+        # php8-pdo_mysql \
+        # php8-pdo_sqlite \
+        # php8-bz2 \
 # Bring in gettext so we can get `envsubst`, then throw
 # the rest away. To do this, we need to install `gettext`
 # then move `envsubst` out of the way so `gettext` can
