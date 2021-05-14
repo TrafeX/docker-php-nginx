@@ -1,0 +1,11 @@
+name: Build Docker
+on: [push]
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
