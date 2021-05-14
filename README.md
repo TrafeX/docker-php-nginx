@@ -18,7 +18,6 @@ Originally forked from: https://github.com/TrafeX/docker-php-nginx and now here:
 
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/fewald/nginx-php7.svg)](https://hub.docker.com/r/fewald/nginx-php7/)
-[![Docker image layers](https://images.microbadger.com/badges/image/fewald/nginx-php7.svg)](https://microbadger.com/images/fewald/nginx-php7)
 ![nginx 1.18.0](https://img.shields.io/badge/nginx-1.18-brightgreen.svg)
 ![php 7.3](https://img.shields.io/badge/php-7.3-brightgreen.svg)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
@@ -41,15 +40,15 @@ If you want to extend or customize that you can do so by mounting a configuratio
 
 Nginx configuration:
 
-    docker run -v "`pwd`/nginx-server.conf:/etc/nginx/conf.d/server.conf" trafex/alpine-nginx-php7
+    docker run -v "`pwd`/nginx-server.conf:/etc/nginx/conf.d/server.conf" fewald/nginx-php7
 
 PHP configuration:
 
-    docker run -v "`pwd`/php-setting.ini:/etc/php7/conf.d/settings.ini" trafex/alpine-nginx-php7
+    docker run -v "`pwd`/php-setting.ini:/etc/php7/conf.d/settings.ini" fewald/nginx-php7
 
 PHP-FPM configuration:
 
-    docker run -v "`pwd`/php-fpm-settings.conf:/etc/php7/php-fpm.d/server.conf" trafex/alpine-nginx-php7
+    docker run -v "`pwd`/php-fpm-settings.conf:/etc/php7/php-fpm.d/server.conf" fewald/nginx-php7
 
 _Note; Because `-v` requires an absolute path I've added `pwd` in the example to return the absolute path to the current directory_
 
