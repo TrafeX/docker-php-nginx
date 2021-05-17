@@ -8,6 +8,9 @@ RUN apk --no-cache add php8 php8-fpm php8-opcache php8-mysqli php8-json php8-ope
     php8-mbstring php8-gd nginx supervisor curl && \
     rm /etc/nginx/conf.d/default.conf
 
+# Create symlink so programs depending on `php` still function
+RUN ln -s /usr/bin/php8 /usr/bin/php
+
 # Configure nginx
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
