@@ -1,3 +1,3 @@
-* * * * *  cd /var/www/html && echo hola >> cron.txt 2>&1
-
+# Run every minute
+*/1 * * * * echo "hello"
 
