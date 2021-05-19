@@ -5,7 +5,8 @@ LABEL Maintainer="Tim de Pater <code@trafex.nl>" \
 # Install packages and remove default server definition
 RUN apk --no-cache add php8 php8-fpm php8-opcache php8-mysqli php8-json php8-openssl php8-curl \
     php8-zlib php8-xml php8-phar php8-intl php8-dom php8-xmlreader php8-ctype php8-session \
-    php8-mbstring php8-gd nginx supervisor curl && \
+    php8-mbstring php8-gd nginx supervisor curl php8-pdo php8-xmlwriter php8-tokenizer \
+    php8-pdo_mysql dcron &&
     rm /etc/nginx/conf.d/default.conf
 
 # Create symlink so programs depending on `php` still function
