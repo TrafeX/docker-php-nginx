@@ -10,6 +10,7 @@ RUN apk --no-cache add \
   php8-ctype \
   php8-curl \
   php8-dom \
+  php8-fileinfo \
   php8-fpm \
   php8-gd \
   php8-intl \
