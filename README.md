@@ -1,5 +1,5 @@
-# Docker PHP-FPM 8.0 & Nginx 1.18 on Alpine Linux
-Example PHP-FPM 8.0 & Nginx 1.18 setup for Docker, build on [Alpine Linux](https://www.alpinelinux.org/).
+# Docker PHP-FPM 8.0.7 & Nginx 1.20.1 on Alpine Linux
+Example PHP-FPM 8.0.7 & Nginx 1.20.1 setup for Docker, build on [Alpine Linux](https://www.alpinelinux.org/).
 The image is only +/- 40MB large.
 
 Repository: https://github.com/TrafeX/docker-php-nginx
