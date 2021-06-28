@@ -1,6 +1,6 @@
-FROM alpine:3.13
+FROM alpine:3.14
 LABEL Maintainer="Tim de Pater <code@trafex.nl>"
-LABEL Description="Lightweight container with Nginx 1.18 & PHP 8.0 based on Alpine Linux."
+LABEL Description="Lightweight container with Nginx 1.20.1 & PHP 8.0.7 based on Alpine Linux."
 
 # Install packages and remove default server definition
 RUN apk --no-cache add \
@@ -23,8 +23,7 @@ RUN apk --no-cache add \
   php8-xml \
   php8-xmlreader \
   php8-zlib \
-  supervisor \
-  && rm /etc/nginx/conf.d/default.conf
+  supervisor
 
 # Create symlink so programs depending on `php` still function
 RUN ln -s /usr/bin/php8 /usr/bin/php
