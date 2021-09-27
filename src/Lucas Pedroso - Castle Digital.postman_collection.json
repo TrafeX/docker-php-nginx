@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "deadb7a2-c774-47df-81fb-bafc64caedb8",
+		"name": "Lucas Pedroso - Castle Digital",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/serach/:term",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/search/mascu",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"search",
+						"mascu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/products/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/products/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"products",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Lucas Pedroso",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "R$60000,00",
+							"type": "text"
+						},
+						{
+							"key": "installment",
+							"value": "12 x R$5000,00",
+							"type": "text"
+						},
+						{
+							"key": "imageUrl",
+							"type": "file",
+							"src": "/home/lucas/lucas-bone.jpg"
+						},
+						{
+							"key": "favorite",
+							"value": "false",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8888/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/products/:id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Lucas Pedroso",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "R$72000,00",
+							"type": "text"
+						},
+						{
+							"key": "installment",
+							"value": "12 x R$6000,00",
+							"type": "text"
+						},
+						{
+							"key": "imageUrl",
+							"type": "file",
+							"src": "/home/lucas/lucas-bone.jpg"
+						},
+						{
+							"key": "favorite",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": null
+			},
+			"response": []
+		}
+	]
+}
