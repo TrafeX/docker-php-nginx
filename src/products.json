@@ -5,7 +5,7 @@
     "price": "R$99,95",
     "installment": "12 x R$8,25",
     "imageUrl": "http:\/\/localhost:8888\/images\/product_1_baf596644d459d23.png",
-    "favorite": "false"
+    "favorite": false
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "price": "R$139,99",
     "installment": "10 x R$13,99",
     "imageUrl": "http:\/\/localhost:8888\/images\/product_2_baf596644d459d24.png",
-    "favorite": "false"
+    "favorite": false
   },
   {
     "id": 3,
@@ -29,6 +29,6 @@
     "price": "R$99,95",
     "installment": "12 x R$8,25",
     "imageUrl": "http:\/\/localhost:8888\/images\/product_4_baf596644d459d26.png",
-    "favorite": "false"
+    "favorite": false
   }
 ]
