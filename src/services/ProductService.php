@@ -32,7 +32,7 @@ class ProductService
       $product['price'],
       $product['installment'],
       $product['filename'],
-      $product['favorite']
+      $product['favorite'] === 'false' ? false : $product['favorite']
     );
     return json_encode(ProductModel::insert($newProduct));
   }
@@ -50,7 +50,7 @@ class ProductService
       $product['price'],
       $product['installment'],
       $product['filename'],
-      $product['favorite']
+      $product['favorite'] === 'false' ? false : $product['favorite']
     );
     return json_encode(ProductModel::update($id, $updateProduct));
   }
