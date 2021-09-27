@@ -27,4 +27,10 @@ $app->get('/products', function (Request $request, Response $response, $args) {
   return $response->withHeader('Content-Type', 'application/json');
 });
 
+$app->get('/search/{term}', function (Request $request, Response $response, $args) {
+	$productName = $args['term'];
+	$response->getBody()->write(ProductService::getByName($productName));
+	return $response->withHeader('Content-Type', 'application/json');
+});
+
 $app->run();
