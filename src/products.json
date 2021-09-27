@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "POLO FIT FEMININA MESH PANEL",
+    "price": "R$99,95",
+    "installment": "12 x R$8,25",
+    "imageUrl": "http:\/\/localhost:8888\/images\/product_1_baf596644d459d23.png",
+    "favorite": "false"
+  },
+  {
+    "id": 2,
+    "name": "CAMISA SOCIAL MASCULINA",
+    "price": "R$139,99",
+    "installment": "10 x R$13,99",
+    "imageUrl": "http:\/\/localhost:8888\/images\/product_1_baf596644d459d24.png",
+    "favorite": "false"
+  },
+  {
+    "id": 3,
+    "name": "BLUSA FEMININA FREE PAINT",
+    "price": "R$259,99",
+    "installment": "12 x R$22,25",
+    "imageUrl": "http:\/\/localhost:8888\/images\/product_1_baf596644d459d25.png",
+    "favorite": true
+  },
+  {
+    "id": 4,
+    "name": "POLO FIT FEMININA MESH PANEL",
+    "price": "R$99,95",
+    "installment": "12 x R$8,25",
+    "imageUrl": "http:\/\/localhost:8888\/images\/product_1_baf596644d459d26.png",
+    "favorite": "false"
+  }
+]
