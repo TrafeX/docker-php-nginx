@@ -33,4 +33,10 @@ $app->get('/search/{term}', function (Request $request, Response $response, $arg
 	return $response->withHeader('Content-Type', 'application/json');
 });
 
+$app->get('/products/{id:[0-9]+}', function (Request $request, Response $response, $args) {
+  $id = $args['id'];
+  $response->getBody()->write(ProductService::getById($id));
+  return $response->withHeader('Content-Type', 'application/json');
+});
+
 $app->run();
