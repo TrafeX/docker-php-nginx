@@ -39,4 +39,13 @@ $app->get('/products/{id:[0-9]+}', function (Request $request, Response $respons
   return $response->withHeader('Content-Type', 'application/json');
 });
 
+$app->post('/products', function (Request $request, Response $response, $args) {
+  $body = $request->getParsedBody();
+  $directory = $this->get('upload_directory');
+  $uploadedFile = $request->getUploadedFiles()['imageUrl'];
+
+  $response->getBody()->write(ProductService::insert($body, $directory, $uploadedFile));
+  return $response->withHeader('Content-Type', 'application/json');
+});
+
 $app->run();
