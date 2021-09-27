@@ -48,4 +48,16 @@ $app->post('/products', function (Request $request, Response $response, $args) {
   return $response->withHeader('Content-Type', 'application/json');
 });
 
+// PUT /products/:id
+$app->post('/products/{id:[0-9]+}', function (Request $request, Response $response, $args) {
+  $id = $args['id'];
+
+  $body = $request->getParsedBody();
+  $directory = $this->get('upload_directory');
+  $uploadedFile = $request->getUploadedFiles()['imageUrl'];
+
+  $response->getBody()->write(ProductService::update($id, $body, $directory, $uploadedFile));
+  return $response->withHeader('Content-Type', 'application/json');
+});
+
 $app->run();
