@@ -17,5 +17,5 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          repository: peterevans/dockerhub-description
+          repository: trafex/php-nginx
           short-description: ${{ github.event.repository.description }}
