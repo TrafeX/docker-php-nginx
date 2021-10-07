@@ -1,6 +1,7 @@
 version: '3.5'
 services:
   app:
+    image: ${IMAGE_NAME}:${IMAGE_TAG}
     build: .
   sut:
     image: alpine:3.13
