@@ -58,7 +58,7 @@ jobs:
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         run: |-
           docker buildx build \
-            --cache-from=$IMAGE_NAME:latest
+            --cache-from=$IMAGE_NAME:latest \
             --push \
             -t $IMAGE_NAME:latest \
             --platform linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6 \
@@ -72,7 +72,7 @@ jobs:
         if: contains(github.ref, 'refs/tags/')
         run: |-
           docker buildx build \
-            --cache-from=$IMAGE_NAME:latest
+            --cache-from=$IMAGE_NAME:latest \
             --push \
             -t $IMAGE_NAME:$RELEASE_VERSION \
             --platform linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6 \

@@ -5,6 +5,7 @@ Repository: https://github.com/TrafeX/docker-php-nginx
 
 
 * Built on the lightweight and secure Alpine Linux distribution
+* Multi-platform, supporting AMD4, ARMv6, ARMv7, ARM64
 * Very small Docker image size (+/-40MB)
 * Uses PHP 8.0 for better performance, lower CPU usage & memory footprint
 * Optimized for 100 concurrent users
