@@ -1,11 +1,15 @@
-
 # Docker PHP-FPM 8.0 & Nginx 1.20 on Alpine Linux
+
+[![Docker Pulls](https://img.shields.io/docker/pulls/erseco/alpine-php7-webserver.svg)](https://hub.docker.com/r/erseco/alpine-php7-webserver/)
+![Docker Image Size](https://img.shields.io/docker/image-size/erseco/alpine-moodle)
+![nginx 1.20.0](https://img.shields.io/badge/nginx-1.18-brightgreen.svg)
+![php 8.0](https://img.shields.io/badge/php-8.0-brightgreen.svg)
+![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
+
 Example PHP-FPM 8.0 & Nginx 1.20 setup for Docker, build on [Alpine Linux](https://www.alpinelinux.org/).
 The image is only +/- 25MB large.
 
-
 Repository: https://github.com/erseco/alpine-php7-webserver
-
 
 * Built on the lightweight and secure Alpine Linux distribution
 * Very small Docker image size (+/-25MB)
@@ -19,11 +23,6 @@ Repository: https://github.com/erseco/alpine-php7-webserver
 * Follows the KISS principle (Keep It Simple, Stupid) to make it easy to understand and adjust the image to your needs
 * Also availabe in Apache flavour: `erseco/alpine-php7-webserver:apache`
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/erseco/alpine-php7-webserver.svg)](https://hub.docker.com/r/erseco/alpine-php7-webserver/)
-[![Docker image layers](https://images.microbadger.com/badges/image/erseco/alpine-php7-webserver.svg)](https://microbadger.com/images/erseco/alpine-php7-webserver)
-![nginx 1.18.0](https://img.shields.io/badge/nginx-1.18-brightgreen.svg)
-![php 8.0](https://img.shields.io/badge/php-7.4-brightgreen.svg)
-![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ## Usage
 

@@ -22,7 +22,7 @@ jobs:
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             TAGS="$TAGS,erseco/${REPO_NAME}:latest"
           fi
-          if [[ $VERSION = "master" ]]; then
+          if [[ $VERSION == "master" ]]; then
             TAGS="$TAGS,erseco/${REPO_NAME}:beta"
           fi
 
