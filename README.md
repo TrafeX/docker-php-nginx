@@ -1,7 +1,7 @@
 # Docker PHP-FPM 8.0 & Nginx 1.20 on Alpine Linux
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/erseco/alpine-php7-webserver.svg)](https://hub.docker.com/r/erseco/alpine-php7-webserver/)
-![Docker Image Size](https://img.shields.io/docker/image-size/erseco/alpine-moodle)
+![Docker Image Size](https://img.shields.io/docker/image-size/erseco/alpine-php-webserver)
 ![nginx 1.20.0](https://img.shields.io/badge/nginx-1.18-brightgreen.svg)
 ![php 8.0](https://img.shields.io/badge/php-8.0-brightgreen.svg)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
