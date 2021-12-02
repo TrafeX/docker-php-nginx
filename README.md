@@ -1,15 +1,15 @@
 # Docker PHP-FPM 8.0 & Nginx 1.20 on Alpine Linux
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/erseco/alpine-php7-webserver.svg)](https://hub.docker.com/r/erseco/alpine-php7-webserver/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/erseco/alpine-php-webserver.svg)](https://hub.docker.com/r/erseco/alpine-php-webserver/)
 ![Docker Image Size](https://img.shields.io/docker/image-size/erseco/alpine-php-webserver)
-![nginx 1.20.0](https://img.shields.io/badge/nginx-1.18-brightgreen.svg)
+![nginx 1.20.2](https://img.shields.io/badge/nginx-1.18-brightgreen.svg)
 ![php 8.0](https://img.shields.io/badge/php-8.0-brightgreen.svg)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
 Example PHP-FPM 8.0 & Nginx 1.20 setup for Docker, build on [Alpine Linux](https://www.alpinelinux.org/).
 The image is only +/- 25MB large.
 
-Repository: https://github.com/erseco/alpine-php7-webserver
+Repository: https://github.com/erseco/alpine-php-webserver
 
 * Built on the lightweight and secure Alpine Linux distribution
 * Very small Docker image size (+/-25MB)
@@ -21,20 +21,20 @@ Repository: https://github.com/erseco/alpine-php7-webserver
 * The servers Nginx, PHP-FPM run under a non-privileged user (nobody) to make it more secure
 * The logs of all the services are redirected to the output of the Docker container (visible with `docker logs -f <container name>`)
 * Follows the KISS principle (Keep It Simple, Stupid) to make it easy to understand and adjust the image to your needs
-* Also availabe in Apache flavour: `erseco/alpine-php7-webserver:apache`
+* Also availabe in Apache flavour: `erseco/alpine-php-webserver:apache`
 
 
 ## Usage
 
 Start the Docker container:
 
-    docker run -p 80:8080 erseco/alpine-php7-webserver
+    docker run -p 80:8080 erseco/alpine-php-webserver
 
 See the PHP info on http://localhost, or the static html page on http://localhost/test.html
 
 Or mount your own code to be served by PHP-FPM & Nginx
 
-    docker run -p 80:8080 -v ~/my-codebase:/var/www/html erseco/alpine-php7-webserver
+    docker run -p 80:8080 -v ~/my-codebase:/var/www/html erseco/alpine-php-webserver
 
 
 ## Adding additional daemons
@@ -78,15 +78,15 @@ If you want to extend or customize that you can do so by mounting a configuratio
 
 Nginx configuration:
 
-    docker run -v "`pwd`/nginx-server.conf:/etc/nginx/conf.d/server.conf" erseco/alpine-php7-webserver
+    docker run -v "`pwd`/nginx-server.conf:/etc/nginx/conf.d/server.conf" erseco/alpine-php-webserver
 
 PHP configuration:
 
-    docker run -v "`pwd`/php-setting.ini:/etc/php7/conf.d/settings.ini" erseco/alpine-php7-webserver
+    docker run -v "`pwd`/php-setting.ini:/etc/php8/conf.d/settings.ini" erseco/alpine-php-webserver
 
 PHP-FPM configuration:
 
-    docker run -v "`pwd`/php-fpm-settings.conf:/etc/php7/php-fpm.d/server.conf" erseco/alpine-php7-webserver
+    docker run -v "`pwd`/php-fpm-settings.conf:/etc/php8/php-fpm.d/server.conf" erseco/alpine-php-webserver
 
 _Note; Because `-v` requires an absolute path I've added `pwd` in the example to return the absolute path to the current directory_
 
@@ -97,18 +97,18 @@ You can define the next environment variables to change values from NGINX and PH
 | Server | Variable Name           | Default | description                                                                                                                                                                                                                                            |
 |--------|-------------------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | NGINX  | client_max_body_size    | 2m      | Sets the maximum allowed size of the client request body, specified in the “Content-Length” request header field.                                                                                                                                      |
-| PHP7   | clear_env               | no      | Clear environment in FPM workers. Prevents arbitrary environment variables from reaching FPM worker processes by clearing the environment in workers before env vars specified in this pool configuration are added.                                   |
-| PHP7   | allow_url_fopen         | On      | Enable the URL-aware fopen wrappers that enable accessing URL object like files. Default wrappers are provided for the access of remote files using the ftp or http protocol, some extensions like zlib may register additional wrappers.              |
-| PHP7   | allow_url_include       | Off     | Allow the use of URL-aware fopen wrappers with the following functions: include(), include_once(), require(), require_once().                                                                                                                          |
-| PHP7   | display_errors          | Off     | Eetermine whether errors should be printed to the screen as part of the output or if they should be hidden from the user.                                                                                                                              |
-| PHP7   | file_uploads            | On      | Whether or not to allow HTTP file uploads.                                                                                                                                                                                                             |
-| PHP7   | max_execution_time      | 0       | Maximum time in seconds a script is allowed to run before it is terminated by the parser. This helps prevent poorly written scripts from tying up the server. The default setting is 30.                                                               |
-| PHP7   | max_input_time          | -1      | Maximum time in seconds a script is allowed to parse input data, like POST, GET and file uploads.                                                                                                                                                      |
-| PHP7   | max_input_vars          | 1000    | Maximum number of input variables allowed per request and can be used to deter denial of service attacks involving hash collisions on the input variable names.                                                                                        |
-| PHP7   | memory_limit            | 128M    | Maximum amount of memory in bytes that a script is allowed to allocate. This helps prevent poorly written scripts for eating up all available memory on a server. Note that to have no memory limit, set this directive to -1.                         |
-| PHP7   | post_max_size           | 8M      | Max size of post data allowed. This setting also affects file upload. To upload large files, this value must be larger than upload_max_filesize. Generally speaking, memory_limit should be larger than post_max_size.                                 |
-| PHP7   | upload_max_filesize     | 2M      | Maximum size of an uploaded file.                                                                                                                                                                                                                      |
-| PHP7   | zlib.output_compression | On      | Whether to transparently compress pages. If this option is set to "On" in php.ini or the Apache configuration, pages are compressed if the browser sends an "Accept-Encoding: gzip" or "deflate" header.                                               |
+| PHP8   | clear_env               | no      | Clear environment in FPM workers. Prevents arbitrary environment variables from reaching FPM worker processes by clearing the environment in workers before env vars specified in this pool configuration are added.                                   |
+| PHP8   | allow_url_fopen         | On      | Enable the URL-aware fopen wrappers that enable accessing URL object like files. Default wrappers are provided for the access of remote files using the ftp or http protocol, some extensions like zlib may register additional wrappers.              |
+| PHP8   | allow_url_include       | Off     | Allow the use of URL-aware fopen wrappers with the following functions: include(), include_once(), require(), require_once().                                                                                                                          |
+| PHP8   | display_errors          | Off     | Eetermine whether errors should be printed to the screen as part of the output or if they should be hidden from the user.                                                                                                                              |
+| PHP8   | file_uploads            | On      | Whether or not to allow HTTP file uploads.                                                                                                                                                                                                             |
+| PHP8   | max_execution_time      | 0       | Maximum time in seconds a script is allowed to run before it is terminated by the parser. This helps prevent poorly written scripts from tying up the server. The default setting is 30.                                                               |
+| PHP8   | max_input_time          | -1      | Maximum time in seconds a script is allowed to parse input data, like POST, GET and file uploads.                                                                                                                                                      |
+| PHP8   | max_input_vars          | 1000    | Maximum number of input variables allowed per request and can be used to deter denial of service attacks involving hash collisions on the input variable names.                                                                                        |
+| PHP8   | memory_limit            | 128M    | Maximum amount of memory in bytes that a script is allowed to allocate. This helps prevent poorly written scripts for eating up all available memory on a server. Note that to have no memory limit, set this directive to -1.                         |
+| PHP8   | post_max_size           | 8M      | Max size of post data allowed. This setting also affects file upload. To upload large files, this value must be larger than upload_max_filesize. Generally speaking, memory_limit should be larger than post_max_size.                                 |
+| PHP8   | upload_max_filesize     | 2M      | Maximum size of an uploaded file.                                                                                                                                                                                                                      |
+| PHP8   | zlib.output_compression | On      | Whether to transparently compress pages. If this option is set to "On" in php.ini or the Apache configuration, pages are compressed if the browser sends an "Accept-Encoding: gzip" or "deflate" header.                                               |
 
 _Note; Because `-v` requires an absolute path I've added `pwd` in the example to return the absolute path to the current directory_
 
@@ -118,7 +118,7 @@ _Note; Because `-v` requires an absolute path I've added `pwd` in the example to
 If you need [Composer](https://getcomposer.org/) in your project, here's an easy way to add it.
 
 ```dockerfile
-FROM erseco/alpine-php7-webserver:latest
+FROM erseco/alpine-php-webserver:latest
 USER root
 # Install composer from the official image
 RUN apk add --no-cache composer
@@ -146,6 +146,6 @@ RUN composer install \
 
 # continue stage build with the desired image and copy the source including the
 # dependencies downloaded by composer
-FROM trafex/alpine-nginx-php7
+FROM erseco/alpine-php-webserver
 COPY --chown=nginx --from=composer /app /var/www/html
 ```
