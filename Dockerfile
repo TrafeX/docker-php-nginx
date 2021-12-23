@@ -20,6 +20,7 @@ RUN apk --no-cache add \
   php8-openssl \
   php8-phar \
   php8-session \
+  php8-sqlite3 \
   php8-xml \
   php8-xmlreader \
   php8-zlib \
