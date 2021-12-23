@@ -1,0 +1,4 @@
+*.swp
+*.conf
+logs
+.env

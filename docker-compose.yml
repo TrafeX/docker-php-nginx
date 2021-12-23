@@ -1,0 +1,18 @@
+services:
+    webserver:
+        build:
+            context: .
+        image: ${IMG_NAME}
+        deploy:
+            resources:
+                limits:
+                    cpus: ${CPUS}
+                    memory: ${MEM}
+        container_name: ${CONT_NAME}
+        volumes:
+            - "${WEB_ROOT}:/var/www"
+        ports:
+            - "${PORT}:8080"
+        restart: unless-stopped
+        environment:
+           - TZ=${TZ} 
