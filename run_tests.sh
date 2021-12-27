@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
 apk --no-cache add curl
-curl --silent --fail http://app:8080 | grep 'PHP 8.0'
+curl --silent --fail http://127.0.0.1:${INT_PORT}/fpm-ping
