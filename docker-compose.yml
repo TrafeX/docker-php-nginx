@@ -2,6 +2,8 @@ services:
     webserver:
         build:
             context: .
+            args:
+                INT_PORT: ${INT_PORT}
         image: ${IMG_NAME}
         deploy:
             resources:
@@ -12,7 +14,7 @@ services:
         volumes:
             - "${WEB_ROOT}:/var/www"
         ports:
-            - "${PORT}:8080"
+            - "${EXT_PORT}:${INT_PORT}"
         restart: unless-stopped
         environment:
            - TZ=${TZ} 

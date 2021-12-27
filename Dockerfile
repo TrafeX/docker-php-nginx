@@ -2,6 +2,9 @@ FROM alpine:3.14
 LABEL Maintainer="Tim de Pater <code@trafex.nl>"
 LABEL Description="Lightweight container with Nginx 1.20 & PHP 8.0 based on Alpine Linux."
 
+ARG INT_PORT
+ENV INT_PORT=${INT_PORT}
+
 # Install packages and remove default server definition
 RUN apk --no-cache add \
   curl \
@@ -55,11 +58,8 @@ USER nobody
 WORKDIR /var/www/html
 COPY --chown=nobody src/ /var/www/html/
 
-# Expose the port nginx is reachable on
-EXPOSE 8080
-
 # Let supervisord start nginx & php-fpm
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
 
 # Configure a healthcheck to validate that everything is up&running
-HEALTHCHECK --timeout=10s CMD curl --silent --fail http://127.0.0.1:8080/fpm-ping
+HEALTHCHECK --timeout=10s CMD curl --silent --fail http://127.0.0.1:${INT_PORT}/fpm-ping
