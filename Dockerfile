@@ -6,7 +6,7 @@ LABEL Description="Lightweight container with Nginx 1.20 & PHP 8.0 based on Alpi
 WORKDIR /var/www/html
 
 # Install packages and remove default server definition
-RUN apk add --no-cache --update \
+RUN apk add --no-cache \
   curl \
   nginx \
   php8 \
