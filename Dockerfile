@@ -25,7 +25,8 @@ RUN apk add --no-cache \
   php8-session \
   php8-xml \
   php8-xmlreader \
-  php8-zlib
+  php8-zlib \
+  supervisor
 
 # Create symlink so programs depending on `php` still function
 RUN ln -s /usr/bin/php8 /usr/bin/php
@@ -37,8 +38,7 @@ COPY config/nginx.conf /etc/nginx/nginx.conf
 COPY config/fpm-pool.conf /etc/php8/php-fpm.d/www.conf
 COPY config/php.ini /etc/php8/conf.d/custom.ini
 
-# Install a golang port of supervisord and Configure
-COPY --from=ochinchina/supervisord:latest /usr/local/bin/supervisord /usr/bin/supervisord
+# Configure supervisord
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Make sure files/folders needed by the processes are accessable when they run under the nobody user
