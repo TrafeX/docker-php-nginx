@@ -16,7 +16,6 @@ RUN apk add --no-cache \
   php8-fpm \
   php8-gd \
   php8-intl \
-  php8-json \
   php8-mbstring \
   php8-mysqli \
   php8-opcache \
