@@ -19,6 +19,10 @@ Repository: https://github.com/TrafeX/docker-php-nginx
 ![php 8.0](https://img.shields.io/badge/php-8.0-brightgreen.svg)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
+## [![Trafex Consultancy](https://timdepater.com/logo/mini-logo.png)](https://timdepater.com)
+I can help you with [Containerization, Kubernetes, Monitoring, Infrastructure as Code and other DevOps challenges](https://timdepater.com/).
+
+
 ## Goal of this project
 The goal of this container image is to provide an example for running Nginx and PHP-FPM in a container which follows
 the best practices and is easy to understand and modify to your needs.
