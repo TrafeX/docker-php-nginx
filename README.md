@@ -1,5 +1,5 @@
 # Docker PHP-FPM 8.0 & Nginx 1.20 on Alpine Linux
-Example PHP-FPM 8.0 & Nginx 1.20 container image for Docker, build on [Alpine Linux](https://www.alpinelinux.org/).
+Example PHP-FPM 8.0 & Nginx 1.20 container image for Docker, built on [Alpine Linux](https://www.alpinelinux.org/).
 
 Repository: https://github.com/TrafeX/docker-php-nginx
 
@@ -19,8 +19,8 @@ Repository: https://github.com/TrafeX/docker-php-nginx
 ![php 8.0](https://img.shields.io/badge/php-8.0-brightgreen.svg)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
-## [![Trafex Consultancy](https://timdepater.com/logo/mini-logo.png)](https://timdepater.com)
-I can help you with [Containerization, Kubernetes, Monitoring, Infrastructure as Code and other DevOps challenges](https://timdepater.com/).
+## [![Trafex Consultancy](https://timdepater.com/logo/mini-logo.png)](https://timdepater.com?mtm_campaign=github)
+I can help you with [Containerization, Kubernetes, Monitoring, Infrastructure as Code and other DevOps challenges](https://timdepater.com/?mtm_campaign=github).
 
 
 ## Goal of this project
