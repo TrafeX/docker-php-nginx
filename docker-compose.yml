@@ -4,7 +4,7 @@ services:
             context: .
             args:
                 INT_PORT: ${INT_PORT}
-        image: ${IMG_NAME}
+        image: ${IMG_NAME}:latest
         deploy:
             resources:
                 limits:
