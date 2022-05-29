@@ -9,6 +9,7 @@ on:
 env:
   IMAGE_NAME: trafex/php-nginx
   IMAGE_TAG: ${{ github.sha }}
+  DOCKER_BUILDKIT: 1
 
 jobs:
   build:
