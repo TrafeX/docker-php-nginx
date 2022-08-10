@@ -55,7 +55,7 @@ Nginx configuration:
 
 PHP configuration:
 
-    docker run -v "`pwd`/php-setting.ini:/etc/php8/conf.d/settings.ini" trafex/php-nginx
+    docker run -v "`pwd`/php-setting.ini:/etc/php81/conf.d/settings.ini" trafex/php-nginx
 
 PHP-FPM configuration:
 
