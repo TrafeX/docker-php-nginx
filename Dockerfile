@@ -24,7 +24,7 @@ RUN apk add --no-cache \
   php81-session \
   php81-xml \
   php81-xmlreader \
-  php81-pdo \
+  php81-pdo_mysql \
   supervisor
 
 # Create symlink so programs depending on `php` still function
