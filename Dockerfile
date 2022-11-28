@@ -1,5 +1,5 @@
 ARG ARCH=
-FROM ${ARCH}alpine:3.16
+FROM ${ARCH}alpine:3.17
 
 LABEL Maintainer="Ernesto Serrano <info@ernesto.es>" \
       Description="Lightweight container with Nginx & PHP-FPM based on Alpine Linux."
@@ -34,11 +34,6 @@ RUN apk --no-cache add \
         nginx \
         runit \
         curl \
-        # php8-pdo \
-        # php8-pdo_pgsql \
-        # php8-pdo_mysql \
-        # php8-pdo_sqlite \
-        # php8-bz2 \
 # Bring in gettext so we can get `envsubst`, then throw
 # the rest away. To do this, we need to install `gettext`
 # then move `envsubst` out of the way so `gettext` can
