@@ -1,4 +1,4 @@
-ARG ALPINE_VERSION=3.16
+ARG ALPINE_VERSION=3.17
 FROM alpine:${ALPINE_VERSION}
 LABEL Maintainer="Tim de Pater <code@trafex.nl>"
 LABEL Description="Lightweight container with Nginx 1.22 & PHP 8.1 based on Alpine Linux."
@@ -25,9 +25,6 @@ RUN apk add --no-cache \
   php81-xml \
   php81-xmlreader \
   supervisor
-
-# Create symlink so programs depending on `php` still function
-RUN ln -s /usr/bin/php81 /usr/bin/php
 
 # Configure nginx - http
 COPY config/nginx.conf /etc/nginx/nginx.conf
