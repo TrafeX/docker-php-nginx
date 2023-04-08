@@ -89,4 +89,4 @@ ENV client_max_body_size=2M \
     memory_limit=128M \
     post_max_size=8M \
     upload_max_filesize=2M \
-    zlib.output_compression=On
+    zlib_output_compression=On
