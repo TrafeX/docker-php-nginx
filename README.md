@@ -1,5 +1,5 @@
-# Docker PHP-FPM 8.1 & Nginx 1.22 on Alpine Linux
-Example PHP-FPM 8.1 & Nginx 1.22 container image for Docker, built on [Alpine Linux](https://www.alpinelinux.org/).
+# Docker PHP-FPM 8.1 & Nginx 1.24 on Alpine Linux
+Example PHP-FPM 8.1 & Nginx 1.24 container image for Docker, built on [Alpine Linux](https://www.alpinelinux.org/).
 
 Repository: https://github.com/TrafeX/docker-php-nginx
 

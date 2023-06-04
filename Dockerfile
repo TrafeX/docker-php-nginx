@@ -1,7 +1,7 @@
-ARG ALPINE_VERSION=3.17
+ARG ALPINE_VERSION=3.18
 FROM alpine:${ALPINE_VERSION}
 LABEL Maintainer="Tim de Pater <code@trafex.nl>"
-LABEL Description="Lightweight container with Nginx 1.22 & PHP 8.1 based on Alpine Linux."
+LABEL Description="Lightweight container with Nginx 1.24 & PHP 8.1 based on Alpine Linux."
 # Setup document root
 WORKDIR /var/www/html
 
