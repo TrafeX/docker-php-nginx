@@ -1,7 +1,7 @@
 ARG ALPINE_VERSION=3.18
 FROM alpine:${ALPINE_VERSION}
 LABEL Maintainer="Tim de Pater <code@trafex.nl>"
-LABEL Description="Lightweight container with Nginx 1.24 & PHP 8.1 based on Alpine Linux."
+LABEL Description="Lightweight container with Nginx 1.24 & PHP 8.2 based on Alpine Linux."
 # Setup document root
 WORKDIR /var/www/html
 
@@ -9,21 +9,21 @@ WORKDIR /var/www/html
 RUN apk add --no-cache \
   curl \
   nginx \
-  php81 \
-  php81-ctype \
-  php81-curl \
-  php81-dom \
-  php81-fpm \
-  php81-gd \
-  php81-intl \
-  php81-mbstring \
-  php81-mysqli \
-  php81-opcache \
-  php81-openssl \
-  php81-phar \
-  php81-session \
-  php81-xml \
-  php81-xmlreader \
+  php82 \
+  php82-ctype \
+  php82-curl \
+  php82-dom \
+  php82-fpm \
+  php82-gd \
+  php82-intl \
+  php82-mbstring \
+  php82-mysqli \
+  php82-opcache \
+  php82-openssl \
+  php82-phar \
+  php82-session \
+  php82-xml \
+  php82-xmlreader \
   supervisor
 
 # Configure nginx - http
@@ -32,8 +32,8 @@ COPY config/nginx.conf /etc/nginx/nginx.conf
 COPY config/conf.d /etc/nginx/conf.d/
 
 # Configure PHP-FPM
-COPY config/fpm-pool.conf /etc/php81/php-fpm.d/www.conf
-COPY config/php.ini /etc/php81/conf.d/custom.ini
+COPY config/fpm-pool.conf /etc/php82/php-fpm.d/www.conf
+COPY config/php.ini /etc/php82/conf.d/custom.ini
 
 # Configure supervisord
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
