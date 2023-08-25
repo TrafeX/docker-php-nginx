@@ -24,7 +24,8 @@ RUN apk add --no-cache \
   php82-session \
   php82-xml \
   php82-xmlreader \
-  supervisor
+  supervisor \
+  ssmtp
 
 # Configure nginx - http
 COPY config/nginx.conf /etc/nginx/nginx.conf
