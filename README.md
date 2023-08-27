@@ -39,12 +39,6 @@ Or mount your own code to be served by PHP-FPM & Nginx
 
     docker run -p 80:8080 -v ~/my-codebase:/var/www/html trafex/php-nginx
 
-### Docker Hub repository name change
-Since we switched to PHP8 the repository name [trafex/alpine-nginx-php7](https://hub.docker.com/r/trafex/alpine-nginx-php7) didn't make sense anymore.
-Because you can't change the name of the repository on Docker Hub I created a new one.
-
-From now on this image can be pulled from Docker Hub under the name [trafex/php-nginx](https://hub.docker.com/r/trafex/php-nginx).
-
 ## Configuration
 In [config/](config/) you'll find the default configuration files for Nginx, PHP and PHP-FPM.
 If you want to extend or customize that you can do so by mounting a configuration file in the correct folder;
@@ -59,44 +53,13 @@ PHP configuration:
 
 PHP-FPM configuration:
 
-    docker run -v "`pwd`/php-fpm-settings.conf:/etc/php8/php-fpm.d/server.conf" trafex/php-nginx
+    docker run -v "`pwd`/php-fpm-settings.conf:/etc/php82/php-fpm.d/server.conf" trafex/php-nginx
 
 _Note; Because `-v` requires an absolute path I've added `pwd` in the example to return the absolute path to the current directory_
 
+## Documentation and examples
+To modify this container to your specific needs please see the following examples;
 
-## Adding composer
-
-If you need [Composer](https://getcomposer.org/) in your project, here's an easy way to add it.
-
-```Dockerfile
-FROM trafex/php-nginx:latest
-
-# Install composer from the official image
-COPY --from=composer /usr/bin/composer /usr/bin/composer
-
-# Run composer install to install the dependencies
-RUN composer install --optimize-autoloader --no-interaction --no-progress
-```
-
-### Building with composer
-
-If you are building an image with source code in it and dependencies managed by composer then the definition can be improved.
-The dependencies should be retrieved by the composer but the composer itself (`/usr/bin/composer`) is not necessary to be included in the image.
-
-```Dockerfile
-FROM composer AS composer
-
-# copying the source directory and install the dependencies with composer
-COPY <your_directory>/ /app
-
-# run composer install to install the dependencies
-RUN composer install \
-  --optimize-autoloader \
-  --no-interaction \
-  --no-progress
-
-# continue stage build with the desired image and copy the source including the
-# dependencies downloaded by composer
-FROM trafex/php-nginx
-COPY --chown=nginx --from=composer /app /var/www/html
-```
+* [Adding xdebug support](docs/xdebug-support.md)
+* [Adding composer](docs/composer-support.md)
+* [Getting the real IP of the client behind a load balancer](docs/real-ip-behind-loadbalancer.md)
