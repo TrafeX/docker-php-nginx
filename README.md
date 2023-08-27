@@ -63,3 +63,4 @@ To modify this container to your specific needs please see the following example
 * [Adding xdebug support](docs/xdebug-support.md)
 * [Adding composer](docs/composer-support.md)
 * [Getting the real IP of the client behind a load balancer](docs/real-ip-behind-loadbalancer.md)
+* [Sending e-mails](docs/sending-emails.md)
