@@ -13,6 +13,7 @@ RUN apk add --no-cache \
   php82-ctype \
   php82-curl \
   php82-dom \
+  php82-fileinfo \
   php82-fpm \
   php82-gd \
   php82-intl \
@@ -22,8 +23,10 @@ RUN apk add --no-cache \
   php82-openssl \
   php82-phar \
   php82-session \
+  php82-tokenizer \
   php82-xml \
   php82-xmlreader \
+  php82-xmlwriter \
   supervisor
 
 # Configure nginx - http
