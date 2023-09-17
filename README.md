@@ -60,7 +60,7 @@ _Note; Because `-v` requires an absolute path I've added `pwd` in the example to
 ## Documentation and examples
 To modify this container to your specific needs please see the following examples;
 
-* [Adding xdebug support](docs/xdebug-support.md)
-* [Adding composer](docs/composer-support.md)
-* [Getting the real IP of the client behind a load balancer](docs/real-ip-behind-loadbalancer.md)
-* [Sending e-mails](docs/sending-emails.md)
+* [Adding xdebug support](https://github.com/TrafeX/docker-php-nginx/blob/master/docs/xdebug-support.md)
+* [Adding composer](https://github.com/TrafeX/docker-php-nginx/blob/master/docs/composer-support.md)
+* [Getting the real IP of the client behind a load balancer](https://github.com/TrafeX/docker-php-nginx/blob/master/docs/real-ip-behind-loadbalancer.md)
+* [Sending e-mails](https://github.com/TrafeX/docker-php-nginx/blob/master/docs/sending-emails.md)
