@@ -1,19 +1,19 @@
-# Docker PHP-FPM 8.1 & Nginx 1.22 on Alpine Linux
+# Docker PHP-FPM 8.1 & Nginx 1.24 on Alpine Linux
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/erseco/alpine-php-webserver.svg)](https://hub.docker.com/r/erseco/alpine-php-webserver/)
 ![Docker Image Size](https://img.shields.io/docker/image-size/erseco/alpine-php-webserver)
-![nginx 1.22.0](https://img.shields.io/badge/nginx-1.18-brightgreen.svg)
+![nginx 1.24.0](https://img.shields.io/badge/nginx-1.18-brightgreen.svg)
 ![php 8.1](https://img.shields.io/badge/php-8.1-brightgreen.svg)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
-Example PHP-FPM 8.0 & Nginx 1.22 setup for Docker, build on [Alpine Linux](https://www.alpinelinux.org/).
+Example PHP-FPM 8.1 & Nginx 1.24 setup for Docker, build on [Alpine Linux](https://www.alpinelinux.org/).
 The image is only +/- 25MB large.
 
 Repository: https://github.com/erseco/alpine-php-webserver
 
 * Built on the lightweight and secure Alpine Linux distribution
 * Very small Docker image size (+/-25MB)
-* Uses PHP 8.0 for better performance, lower cpu usage & memory footprint
+* Uses PHP 8.1 for better performance, lower cpu usage & memory footprint
 * Multi-arch support: 386, amd64, arm/v6, arm/v7, arm64, ppc64le, s390x
 * Optimized for 100 concurrent users
 * Optimized to only use resources when there's traffic (by using PHP-FPM's ondemand PM)
