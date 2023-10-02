@@ -62,7 +62,7 @@ jobs:
           docker-compose --file docker-compose.test.yml up --exit-code-from sut --timeout 10 --build
 
       - name: Build and push
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
