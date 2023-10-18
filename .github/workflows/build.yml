@@ -26,7 +26,7 @@ jobs:
           if [[ $VERSION == "master" ]]; then
             TAGS="$TAGS,erseco/${REPO_NAME}:beta"
           fi
-          
+
           GHCR_TAGS="${GHCR_IMAGE}:${VERSION}"
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             GHCR_TAGS="$GHCR_TAGS,${GHCR_IMAGE}:latest"
@@ -34,6 +34,10 @@ jobs:
           if [[ $VERSION == "master" ]]; then
             GHCR_TAGS="$GHCR_TAGS,${GHCR_IMAGE}:beta"
           fi
+
+          echo ::set-output name=platforms::${DOCKER_PLATFORMS}
+          echo ::set-output name=tags::${TAGS}
+          echo ::set-output name=ghcr-tags::${GHCR_TAGS}
 
         env:
           REPO_NAME: ${{ github.event.repository.name }}
