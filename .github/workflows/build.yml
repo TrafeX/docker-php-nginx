@@ -35,9 +35,9 @@ jobs:
             GHCR_TAGS="$GHCR_TAGS,${GHCR_IMAGE}:beta"
           fi
 
-          echo ::set-output name=platforms::${DOCKER_PLATFORMS}
-          echo ::set-output name=tags::${TAGS}
-          echo ::set-output name=ghcr-tags::${GHCR_TAGS}
+          echo "platforms=${DOCKER_PLATFORMS}" >> $GITHUB_OUTPUT
+          echo "tags=${TAGS}" >> $GITHUB_OUTPUT
+          echo "ghcr-tags=${GHCR_TAGS}" >> $GITHUB_OUTPUT
 
       - name: Set up QEMU
         id: qemu
