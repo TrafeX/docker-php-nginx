@@ -41,7 +41,7 @@ server {
 }
 ```
 
-If you use docker-compose here a example:
+If you use docker-compose here is an example:
 
 ```yaml
   php-nginx:
