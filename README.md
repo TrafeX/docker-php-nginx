@@ -8,7 +8,7 @@ Repository: [https://github.com/doritoes/docker-php-nginx-app-server]
 * Forked fom best practice repository [https://github.com/TrafeX/docker-php-nginx]
 * Very small Docker image size (+/-40MB)
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/doritoes/llhs.svg)](https://hub.docker.com/r/doritoes/llhs/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/doritoes/llhls.svg)](https://hub.docker.com/r/doritoes/llhls/)
 ![nginx 1.24](https://img.shields.io/badge/nginx-1.24-brightgreen.svg)
 ![php 8.3](https://img.shields.io/badge/php-8.3-brightgreen.svg)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
