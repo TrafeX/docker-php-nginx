@@ -17,5 +17,5 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          repository: trafex/php-nginx
+          repository: doritoes/php-nginx-app-server
           short-description: ${{ github.event.repository.description }}
