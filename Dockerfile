@@ -1,9 +1,14 @@
-ARG ALPINE_VERSION=3.19
+ARG ALPINE_VERSION=3.20
 FROM alpine:${ALPINE_VERSION}
 LABEL Maintainer="Tim de Pater <code@trafex.nl>"
 LABEL Description="Lightweight container with Nginx 1.24 & PHP 8.3 based on Alpine Linux."
 # Setup document root
 WORKDIR /var/www/html
+
+# update the openssl package
+# ref: https://github.com/alpinelinux/docker-alpine/issues/405
+# remove when 3.20.2 published
+RUN apk add --no-cache openssl
 
 # Install packages and remove default server definition
 RUN apk add --no-cache \
