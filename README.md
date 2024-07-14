@@ -1,5 +1,5 @@
-# Docker PHP-FPM 8.3 & Nginx 1.24 on Alpine Linux
-Example PHP-FPM 8.3 & Nginx 1.24 container image for Docker, built on [Alpine Linux](https://www.alpinelinux.org/).
+# Docker PHP-FPM 8.3 & Nginx 1.26 on Alpine Linux
+Example PHP-FPM 8.3 & Nginx 1.26 container image for Docker, built on [Alpine Linux](https://www.alpinelinux.org/).
 
 Repository: https://github.com/TrafeX/docker-php-nginx
 
@@ -15,7 +15,7 @@ Repository: https://github.com/TrafeX/docker-php-nginx
 * Follows the KISS principle (Keep It Simple, Stupid) to make it easy to understand and adjust the image to your needs
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/trafex/php-nginx.svg)](https://hub.docker.com/r/trafex/php-nginx/)
-![nginx 1.24](https://img.shields.io/badge/nginx-1.26-brightgreen.svg)
+![nginx 1.26](https://img.shields.io/badge/nginx-1.26-brightgreen.svg)
 ![php 8.3](https://img.shields.io/badge/php-8.3-brightgreen.svg)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
