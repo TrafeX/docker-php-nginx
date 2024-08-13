@@ -2,11 +2,11 @@ name: Test & build Docker image
 
 on:
   push:
-    branches: [ master ]
-    tags: ['*']
+    branches: [master]
+    tags: ["*"]
   pull_request:
   schedule:
-    - cron: '0 2 * * 6'
+    - cron: "0 2 * * 6"
 
 env:
   IMAGE_NAME: trafex/php-nginx
@@ -34,23 +34,23 @@ jobs:
 
       - name: Smoke test image
         run: |-
-          docker-compose -f docker-compose.test.yml up -d app
+          docker compose -f docker-compose.test.yml up -d app
           sleep 2
-          docker-compose -f docker-compose.test.yml run sut
+          docker compose -f docker-compose.test.yml run sut
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: '${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}'
-          format: 'template'
-          template: '@/contrib/sarif.tpl'
-          output: 'trivy-results.sarif'
+          image-ref: "${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}"
+          format: "template"
+          template: "@/contrib/sarif.tpl"
+          output: "trivy-results.sarif"
 
       - name: Upload Trivy scan results to GitHub Security tab
         if: github.ref == 'refs/heads/master' && (github.event_name == 'push' || github.event_name == 'schedule')
         uses: github/codeql-action/upload-sarif@v3
         with:
-          sarif_file: 'trivy-results.sarif'
+          sarif_file: "trivy-results.sarif"
 
       - name: Login to Docker Hub
         if: (github.ref == 'refs/heads/master' && (github.event_name == 'push' || github.event_name == 'schedule' )) || contains(github.ref, 'refs/tags/')
