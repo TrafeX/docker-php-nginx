@@ -9,7 +9,7 @@ on:
     - cron: "0 2 * * 6"
 
 env:
-  IMAGE_NAME: trafex/php-nginx
+  IMAGE_NAME: bhos2s/php-nginx
   IMAGE_TAG: ${{ github.sha }}
   DOCKER_BUILDKIT: 1
 
