@@ -27,7 +27,7 @@ FROM trafex/php-nginx:latest
 USER root
 
 # Install xdebug
-RUN apk add --no-cache php83-pecl-xdebug
+RUN apk add --no-cache php84-pecl-xdebug
 
 # Add configuration
 COPY xdebug.ini ${PHP_INI_DIR}/conf.d/xdebug.ini
