@@ -29,6 +29,8 @@ RUN apk add --no-cache \
   php84-xmlwriter \
   supervisor
 
+RUN ln -s /usr/bin/php84 /usr/bin/php
+
 # Configure nginx - http
 COPY config/nginx.conf /etc/nginx/nginx.conf
 # Configure nginx - default server
