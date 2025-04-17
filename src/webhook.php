@@ -75,7 +75,7 @@ if($json_data['events'][0]['type']=="message"){
       "size": "micro",
       "hero": {
         "type": "image",
-        "url": "https://developers-resource.landpress.line.me/fx/clip/clip10.jpg",
+        "url": "https://backend-api-chat.aslsecurities.com/public/assets/img/ats_mobile.png",
         "size": "full",
         "aspectMode": "cover",
         "aspectRatio": "320:213"
@@ -106,17 +106,17 @@ if($json_data['events'][0]['type']=="message"){
           {
             "type": "button",
             "action": {
-              "type": "message",
+              "type": "uri",
               "label": "วิธีการ",
-              "text": "hello"
+              "uri": "'.$web_deposit_manual.'"
             }
           },
           {
             "type": "button",
             "action": {
-              "type": "message",
+              "type": "uri",
               "label": "เริ่มฝากเงิน",
-              "text": "hello"
+              "uri": "'.$web_deposit.'"
             }
           }
         ]
@@ -127,7 +127,7 @@ if($json_data['events'][0]['type']=="message"){
       "size": "micro",
       "hero": {
         "type": "image",
-        "url": "https://developers-resource.landpress.line.me/fx/clip/clip11.jpg",
+        "url": "https://backend-api-chat.aslsecurities.com/public/assets/img/mobile-banking.png",
         "size": "full",
         "aspectMode": "cover",
         "aspectRatio": "320:213"
@@ -158,9 +158,9 @@ if($json_data['events'][0]['type']=="message"){
           {
             "type": "button",
             "action": {
-              "type": "message",
+              "type": "uri",
               "label": "วิธีการ",
-              "text": "manual billpayment"
+              "uri": "'.$web_billpayment_manual.'"
             }
           },
           {
@@ -168,7 +168,7 @@ if($json_data['events'][0]['type']=="message"){
             "action": {
               "type": "uri",
               "label": "แนบสลิป",
-              "uri": "http://linecorp.com/"
+              "uri": "'.$web_deposit_slip.'"
             }
           }
         ]
@@ -179,7 +179,7 @@ if($json_data['events'][0]['type']=="message"){
       "size": "micro",
       "hero": {
         "type": "image",
-        "url": "https://developers-resource.landpress.line.me/fx/clip/clip12.jpg",
+        "url": "https://backend-api-chat.aslsecurities.com/public/assets/img/insurance-agent.png",
         "size": "full",
         "aspectMode": "cover",
         "aspectRatio": "320:213"
@@ -210,7 +210,7 @@ if($json_data['events'][0]['type']=="message"){
             "action": {
               "type": "uri",
               "label": "วิธีการ",
-              "uri": "http://linecorp.com/"
+              "uri": "'.$web_deposit_commission_fee_manual.'"
             }
           },
           {
@@ -218,7 +218,7 @@ if($json_data['events'][0]['type']=="message"){
             "action": {
               "type": "uri",
               "label": "เริ่มฝากเงิน",
-              "uri": "http://linecorp.com/"
+              "uri": "'.$web_deposit_commission_fee.'"
             }
           }
         ]
