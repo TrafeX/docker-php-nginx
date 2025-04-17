@@ -55,7 +55,7 @@ if($json_data['events'][0]['type']=="message"){
         // $result = curl_exec($ch);
         // curl_close ($ch);
 
-        if($json_data['events'][0]['text'] =="ฝาก/ถอนเงิน"){
+        if($json_data['events'][0]['message']['text'] =="ฝาก/ถอนเงิน"){
             $flexDataJson ='{
           "type": "bubble",
           "body": {
@@ -134,7 +134,7 @@ if($json_data['events'][0]['type']=="message"){
 
         }
 
-        if($json_data['events'][0]['text'] =="ฝากเงิน"){
+        if($json_data['events'][0]['message']['text'] =="ฝากเงิน"){
             $flexDataJson ='{
             "type": "carousel",
             "contents": [
