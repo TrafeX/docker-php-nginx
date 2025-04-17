@@ -57,170 +57,177 @@ if($json_data['events'][0]['type']=="message"){
         // curl_close ($ch);
 
         if($json_data['events'][0]['message']['text'] =="ฝากเงิน" ){
+            $web_deposit_manual = "https://www.aslsecurities.com/new/media/upload/17448951051.pdf";
+            $web_deposit = "https://webtest2.aslsecurities.com/cash_deposit.aspx";
             $flexDataJson = '{
-              "type": "flex",
-              "altText": "Call Eservice",
-              "contents": 
-              {
-                "type": "carousel",
-                "contents": [
-                  {
-                    "type": "bubble",
-                    "size": "micro",
-                    "hero": {
-                      "type": "image",
-                      "url": "https://backend-api-chat.aslsecurities.com/public/assets/img/ats_mobile.png",
-                      "size": "full",
-                      "aspectMode": "fit",
-                      "aspectRatio": "320:213"
-                    },
-                    "body": {
-                      "type": "box",
-                      "layout": "vertical",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "ฝากเงินผ่าน ATS",
-                          "weight": "bold",
-                          "size": "sm",
-                          "wrap": true,
-                          "align": "center"
-                        }
-                      ],
-                      "spacing": "sm",
-                      "paddingAll": "13px"
-                    },
-                    "footer": {
-                      "type": "box",
-                      "layout": "vertical",
-                      "contents": [
-                        {
-                          "type": "separator"
-                        },
-                        {
-                          "type": "button",
-                          "action": {
-                            "type": "message",
-                            "label": "วิธีการ",
-                            "text": "hello"
-                          }
-                        },
-                        {
-                          "type": "button",
-                          "action": {
-                            "type": "message",
-                            "label": "เริ่มฝากเงิน",
-                            "text": "hello"
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "type": "bubble",
-                    "size": "micro",
-                    "hero": {
-                      "type": "image",
-                      "url": "https://backend-api-chat.aslsecurities.com/public/assets/img/mobile-banking.png",
-                      "size": "full",
-                      "aspectMode": "fit",
-                      "aspectRatio": "320:213"
-                    },
-                    "body": {
-                      "type": "box",
-                      "layout": "vertical",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "ฝากเงินผ่านธนาคาร Bill Payment",
-                          "weight": "bold",
-                          "size": "sm",
-                          "wrap": true,
-                          "align": "center"
-                        }
-                      ],
-                      "spacing": "sm",
-                      "paddingAll": "13px"
-                    },
-                    "footer": {
-                      "type": "box",
-                      "layout": "vertical",
-                      "contents": [
-                        {
-                          "type": "separator"
-                        },
-                        {
-                          "type": "button",
-                          "action": {
-                            "type": "message",
-                            "label": "วิธีการ",
-                            "text": "manual billpayment"
-                          }
-                        },
-                        {
-                          "type": "button",
-                          "action": {
-                            "type": "uri",
-                            "label": "แนบสลิป",
-                            "uri": "http://linecorp.com/"
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "type": "bubble",
-                    "size": "micro",
-                    "hero": {
-                      "type": "image",
-                      "url": "https://backend-api-chat.aslsecurities.com/public/assets/img/insurance-agent.png",
-                      "size": "full",
-                      "aspectMode": "fit",
-                      "aspectRatio": "320:213"
-                    },
-                    "body": {
-                      "type": "box",
-                      "layout": "vertical",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "ค่าขายหลักทรัพย์",
-                          "weight": "bold",
-                          "size": "sm"
-                        }
-                      ],
-                      "spacing": "sm",
-                      "paddingAll": "13px"
-                    },
-                    "footer": {
-                      "type": "box",
-                      "layout": "vertical",
-                      "contents": [
-                        {
-                          "type": "separator"
-                        },
-                        {
-                          "type": "button",
-                          "action": {
-                            "type": "uri",
-                            "label": "วิธีการ",
-                            "uri": "http://linecorp.com/"
-                          }
-                        },
-                        {
-                          "type": "button",
-                          "action": {
-                            "type": "uri",
-                            "label": "เริ่มฝากเงิน",
-                            "uri": "http://linecorp.com/"
-                          }
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-              }';
+                                "type": "flex",
+                                "altText": "Call Eservice",
+                                "contents": {
+                                "type": "carousel",
+                                "contents": [
+                                {
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "size": "micro",
+      "hero": {
+        "type": "image",
+        "url": "https://backend-api-chat.aslsecurities.com/public/assets/img/ats_mobile.png",
+        "size": "full",
+        "aspectMode": "fit",
+        "aspectRatio": "320:213"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "ฝากเงินผ่าน ATS",
+            "weight": "bold",
+            "size": "sm",
+            "wrap": true,
+            "align": "center"
+          }
+        ],
+        "spacing": "sm",
+        "paddingAll": "13px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "separator"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "วิธีการ",
+              "uri": "'.$web_deposit_manual.'"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "เริ่มฝากเงิน",
+              "uri": "'.$web_deposit.'"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "micro",
+      "hero": {
+        "type": "image",
+        "url": "https://backend-api-chat.aslsecurities.com/public/assets/img/mobile-banking.png",
+        "size": "full",
+        "aspectMode": "fit",
+        "aspectRatio": "320:213"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "ฝากเงินผ่านธนาคาร Bill Payment",
+            "weight": "bold",
+            "size": "sm",
+            "wrap": true,
+            "align": "center"
+          }
+        ],
+        "spacing": "sm",
+        "paddingAll": "13px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "separator"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "วิธีการ",
+              "uri": "http://linecorp.com/"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "แนบสลิป",
+              "uri": "http://linecorp.com/"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "micro",
+      "hero": {
+        "type": "image",
+        "url": "https://backend-api-chat.aslsecurities.com/public/assets/img/insurance-agent.png",
+        "size": "full",
+        "aspectMode": "fit",
+        "aspectRatio": "320:213"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "ค่าขายหลักทรัพย์",
+            "weight": "bold",
+            "size": "sm"
+          }
+        ],
+        "spacing": "sm",
+        "paddingAll": "13px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "separator"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "วิธีการ",
+              "uri": "http://linecorp.com/"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "เริ่มฝากเงิน",
+              "uri": "http://linecorp.com/"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+                                ]
+
+                            }';
+                            
 
             $flexDataJsonDeCode = json_decode($flexDataJson,true);
 
