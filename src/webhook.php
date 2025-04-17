@@ -233,9 +233,9 @@ if($json_data['events'][0]['type']=="message"){
 
             $arrPostData = array();
             $arrPostData['replyToken'] = $json_data['events'][0]['replyToken'];
-            $arrPostData['messages'][0]['type'] = "flex";
-            $arrPostData['messages'][0]['altText'] = "Call Eservice";
-            $arrPostData['messages'][] =  $flexDataJsonDeCode;
+         //   $arrPostData['messages'][0]['type'] = "flex";
+        //    $arrPostData['messages'][0]['altText'] = "Call Eservice";
+            $arrPostData['messages'][0] =  $flexDataJsonDeCode;
 
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL,$strUrl );
