@@ -68,12 +68,10 @@ if($json_data['events'][0]['type']=="message"){
                                 "type": "flex",
                                 "altText": "Call Eservice",
                                 "contents": {
-                                "type": "carousel",
-                                "contents": [
-                                {
-  "type": "carousel",
-  "contents": [
-    {
+                                    "type": "carousel",
+                                   "contents": 
+                                  [
+                                    {
       "type": "bubble",
       "size": "micro",
       "hero": {
@@ -227,11 +225,8 @@ if($json_data['events'][0]['type']=="message"){
         ]
       }
     }
-  ]
-}
                                 ]
-
-                            }';
+                              }';
                             
 
             $flexDataJsonDeCode = json_decode($flexDataJson,true);
