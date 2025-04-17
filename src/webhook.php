@@ -34,106 +34,106 @@ if($json_data['events'][0]['type']=="follow" || $json_data['events'][0]['type']=
 
 }
 if($json_data['events'][0]['type']=="message"){
-        $strUrl = "https://api.line.me/v2/bot/message/reply";
+        // $strUrl = "https://api.line.me/v2/bot/message/reply";
 
-        $arrHeader = array();
-        $arrHeader[] = "Content-Type: application/json";
-        $arrHeader[] = "Authorization: Bearer " . $token;
+        // $arrHeader = array();
+        // $arrHeader[] = "Content-Type: application/json";
+        // $arrHeader[] = "Authorization: Bearer " . $token;
     
-        $arrPostData = array();
-        $arrPostData['replyToken'] = $json_data['events'][0]['replyToken'];
-        $arrPostData['messages'][0]['type'] = "text";
-        $arrPostData['messages'][0]['text'] = "test reply message ".$json_data['events'][0]['message']['text'];
+        // $arrPostData = array();
+        // $arrPostData['replyToken'] = $json_data['events'][0]['replyToken'];
+        // $arrPostData['messages'][0]['type'] = "text";
+        // $arrPostData['messages'][0]['text'] = "test reply message ".$json_data['events'][0]['message']['text'];
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,$strUrl );
-        curl_setopt($ch, CURLOPT_HEADER, false);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $arrHeader);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrPostData));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        $result = curl_exec($ch);
-        curl_close ($ch);
+        // $ch = curl_init();
+        // curl_setopt($ch, CURLOPT_URL,$strUrl );
+        // curl_setopt($ch, CURLOPT_HEADER, false);
+        // curl_setopt($ch, CURLOPT_POST, true);
+        // curl_setopt($ch, CURLOPT_HTTPHEADER, $arrHeader);
+        // curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrPostData));
+        // curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+        // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        // $result = curl_exec($ch);
+        // curl_close ($ch);
 
-        // if($json_data['events'][0]['message']['text'] =="ฝาก/ถอนเงิน"){
-        //     $flexDataJson ='{
-        //   "type": "bubble",
-        //   "body": {
-        //     "type": "box",
-        //     "layout": "vertical",
-        //     "contents": [
-        //       {
-        //         "type": "text",
-        //         "text": "เลือกบริการที่สนใจได้เลยค่ะ",
-        //         "weight": "bold",
-        //         "size": "lg"
-        //       }
-        //     ]
-        //   },
-        //   "footer": {
-        //     "type": "box",
-        //     "layout": "vertical",
-        //     "spacing": "sm",
-        //     "contents": [
-        //       {
-        //         "type": "button",
-        //         "style": "link",
-        //         "height": "sm",
-        //         "action": {
-        //           "type": "message",
-        //           "label": "ฝากเงิน",
-        //           "text": "ฝากเงิน"
-        //         }
-        //       },
-        //       {
-        //         "type": "button",
-        //         "style": "link",
-        //         "height": "sm",
-        //         "action": {
-        //           "type": "message",
-        //           "label": "ถอนเงิน",
-        //           "text": "ถอนเงิน"
-        //         }
-        //       },
-        //          {
-        //         "type": "box",
-        //         "layout": "vertical",
-        //         "contents": [],
-        //         "margin": "sm"
-        //             }
-        //         ],
-        //             "flex": 0
-        //         }
-        //         }';
+        if($json_data['events'][0]['message']['text'] =="ฝาก/ถอนเงิน"){
+            $flexDataJson ='{
+          "type": "bubble",
+          "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "เลือกบริการที่สนใจได้เลยค่ะ",
+                "weight": "bold",
+                "size": "lg"
+              }
+            ]
+          },
+          "footer": {
+            "type": "box",
+            "layout": "vertical",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "button",
+                "style": "link",
+                "height": "sm",
+                "action": {
+                  "type": "message",
+                  "label": "ฝากเงิน",
+                  "text": "ฝากเงิน"
+                }
+              },
+              {
+                "type": "button",
+                "style": "link",
+                "height": "sm",
+                "action": {
+                  "type": "message",
+                  "label": "ถอนเงิน",
+                  "text": "ถอนเงิน"
+                }
+              },
+                 {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [],
+                "margin": "sm"
+                    }
+                ],
+                    "flex": 0
+                }
+                }';
 
-        //     $flexDataJsonDeCode = json_decode($flexDataJson,true);
+            $flexDataJsonDeCode = json_decode($flexDataJson,true);
 
 
-        //     $strUrl = "https://api.line.me/v2/bot/message/reply";
+            $strUrl = "https://api.line.me/v2/bot/message/reply";
 
-        //     $arrHeader = array();
-        //     $arrHeader[] = "Content-Type: application/json";
-        //     $arrHeader[] = "Authorization: Bearer " . $token;
+            $arrHeader = array();
+            $arrHeader[] = "Content-Type: application/json";
+            $arrHeader[] = "Authorization: Bearer " . $token;
 
-        //     $arrPostData = array();
-        //     $arrPostData['replyToken'] = $json_data['events'][0]['replyToken'];
-        //     $arrPostData['messages'][0]['type'] = "flex";
-        //     $arrPostData['messages'][0]['altText'] = "Call Eservice";
-        //     $arrPostData['messages'][0]['contents'][] =  $flexDataJsonDeCode;
+            $arrPostData = array();
+            $arrPostData['replyToken'] = $json_data['events'][0]['replyToken'];
+            $arrPostData['messages'][0]['type'] = "flex";
+            $arrPostData['messages'][0]['altText'] = "Call Eservice";
+            $arrPostData['messages'][0]['contents'][] =  $flexDataJsonDeCode;
 
-        //     $ch = curl_init();
-        //     curl_setopt($ch, CURLOPT_URL,$strUrl );
-        //     curl_setopt($ch, CURLOPT_HEADER, false);
-        //     curl_setopt($ch, CURLOPT_POST, true);
-        //     curl_setopt($ch, CURLOPT_HTTPHEADER, $arrHeader);
-        //     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrPostData));
-        //     curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-        //     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        //     $result = curl_exec($ch);
-        //     curl_close ($ch);
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL,$strUrl );
+            curl_setopt($ch, CURLOPT_HEADER, false);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $arrHeader);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrPostData));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            $result = curl_exec($ch);
+            curl_close ($ch);
 
-        // }
+        }
 
         // if($json_data['events'][0]['message']['text'] =="ฝากเงิน"){
         //     $flexDataJson ='{
