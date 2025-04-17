@@ -263,6 +263,7 @@ if($json_data['events'][0]['type']=="message"){
         }
 
         if($json_data['events'][0]['message']['text'] =="ฝาก/ถอนเงิน"){
+          $web_cash_withdraw = "https://webtest2.aslsecurities.com/cash_deposit.aspx";
             $flexDataJson ='{
             "type": "flex",
             "altText": "Call Eservice",
@@ -301,9 +302,9 @@ if($json_data['events'][0]['type']=="message"){
                     "style": "link",
                     "height": "sm",
                     "action": {
-                      "type": "message",
-                      "label": "ถอนเงิน",
-                      "text": "ถอนเงิน"
+                       "type": "uri",
+                       "label": "ถอนเงิน",
+                       "uri": "'.$web_cash_withdraw.'"
                     }
                   },
                   {
