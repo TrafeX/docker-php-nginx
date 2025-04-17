@@ -29,13 +29,16 @@ if($json_data['events'][0]['type']=="follow" || $json_data['events'][0]['type']=
         $profile_name = $json_profile['displayName'];
 
     }
-    if($json_data['events'][0]['type']=="message"){
+   
+
+}
+if($json_data['events'][0]['type']=="message"){
         $strUrl = "https://api.line.me/v2/bot/message/reply";
 
         $arrHeader = array();
         $arrHeader[] = "Content-Type: application/json";
         $arrHeader[] = "Authorization: Bearer " . $token;
-        
+    
         $arrPostData = array();
         $arrPostData['replyToken'] = $json_data['events'][0]['replyToken'];
         $arrPostData['messages'][0]['type'] = "text";
@@ -51,9 +54,7 @@ if($json_data['events'][0]['type']=="follow" || $json_data['events'][0]['type']=
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $result = curl_exec($ch);
         curl_close ($ch);
-    }
-
-    $customerModel  = new CustomerModel();
-    $customerModel->manageLineUser($json_data, $profile_name);
 }
+
+    return "success";
 ?>
