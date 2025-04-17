@@ -62,7 +62,7 @@ if($json_data['events'][0]['type']=="message"){
             $web_billpayment_manual = "https://www.aslsecurities.com/new/media/upload/17448952121.pdf";
             $web_deposit_commission_fee = "https://webtest2.aslsecurities.com/cash_deposit.aspx";
             $web_deposit_commission_fee_manual = "https://webtest2.aslsecurities.com/cash_deposit.aspx";
-            $web_deposit_slip = "https://www.aslsecurities.com/new/media/upload/17448952121.pdf";
+            $web_deposit_slip = "https://liff.line.me/2007230457-jPVJnZwg";
             $web_deposit_slip_manual = "https://www.aslsecurities.com/new/media/upload/17448952121.pdf";
             $flexDataJson = '{
                                 "type": "flex",

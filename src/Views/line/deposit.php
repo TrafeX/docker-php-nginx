@@ -13,24 +13,20 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css" />
 
         <!-- Custom fonts for this template-->
-        <link href="<?php echo base_url("public/bootstrap-admin/vendor/fontawesome-free/css/all.min.css"); ?>" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
 
         <!-- Custom styles for this template-->
-        <link href="<?php echo base_url("public/bootstrap-admin/css/sb-admin-2.min.css"); ?>" rel="stylesheet">
 
         <!-- Custom styles for this page -->
-        <link href="<?php echo base_url("public/bootstrap-admin/vendor/datatables/dataTables.bootstrap4.min.css"); ?>" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="<?php echo base_url("public/jquery-file-upload/upload.css"); ?>">
          <!-- Styles -->
          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ4n1KerL8Qn0aNv3YvqTmaubgqVd_kps&callback=Function.prototype&libraries=&v=weekly"></script>
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="<?php echo base_url("public/custom/app.css"); ?>">
         <style>
             .required-field::before {
             content: "*";
@@ -75,22 +71,10 @@
     </div>
    
     <!-- Bootstrap core JavaScript-->
-    <script src="<?php echo base_url("public/bootstrap-admin/vendor/jquery/jquery.min.js"); ?>"></script>
-    <script src="<?php echo base_url("public/jquery-file-upload/upload.js"); ?>"></script>
-    <script src="<?php echo base_url("public/bootstrap-admin/vendor/bootstrap/js/bootstrap.bundle.min.js"); ?>"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Core plugin JavaScript-->
-    <script src="<?php echo base_url("public/bootstrap-admin/vendor/jquery-easing/jquery.easing.min.js"); ?>"></script>
-    <script src="<?php echo base_url("public/bootstrap-admin/js/sb-admin-2.min.js"); ?>"></script>
-    <script src="<?php echo base_url("public/bootstrap-admin/vendor/datatables/jquery.dataTables.min.js"); ?>"></script>
-    <script src="<?php echo base_url("public/bootstrap-admin/vendor/datatables/dataTables.bootstrap4.min.js"); ?>"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-    <!-- Custom -->
-    <script src="<?php echo base_url("public/custom/validate.js?".$version); ?>"></script>
-    <script src="<?php echo base_url("public/custom/init.datatable.js?".$version); ?>"></script>
-    <script src="<?php echo base_url("public/custom/app.js?".$version); ?>"></script>
     <!-- Line LIFF -->
     <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     <script>
