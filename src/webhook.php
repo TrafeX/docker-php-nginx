@@ -72,56 +72,55 @@ if($json_data['events'][0]['type']=="message"){
                                    "contents": 
                                   [
                                     {
-      "type": "bubble",
-      "size": "micro",
-      "hero": {
-        "type": "image",
-        "url": "https://backend-api-chat.aslsecurities.com/public/assets/img/ats_mobile.png",
-        "size": "full",
-        "aspectMode": "fit",
-        "aspectRatio": "320:213"
-      },
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "text",
-            "text": "ฝากเงินผ่าน ATS",
-            "weight": "bold",
-            "size": "sm",
-            "wrap": true,
-            "align": "center"
-          }
-        ],
-        "spacing": "sm",
-        "paddingAll": "13px"
-      },
-      "footer": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "separator"
-          },
-          {
-            "type": "button",
-            "action": {
-              "type": "uri",
-              "label": "วิธีการ",
-              "uri": "'.$web_deposit_manual.'"
-            }
-          },
-          {
-            "type": "button",
-            "action": {
-              "type": "uri",
-              "label": "เริ่มฝากเงิน",
-              "uri": "'.$web_deposit.'"
-            }
-          }
-        ]
-      }
+                                      "type": "bubble",
+                                      "size": "micro",
+                                      "hero": {
+                                                "type": "image",
+                                                "url": "https://backend-api-chat.aslsecurities.com/public/assets/img/ats_mobile.png",
+                                                "size": "full",
+                                                "aspectMode": "fit",
+                                                "aspectRatio": "320:213"
+                                              },
+                                      "body": {
+                                                "type": "box",
+                                                "layout": "vertical",
+                                                "contents": [
+                                                      {
+                                                        "type": "text",
+                                                        "text": "ฝากเงินผ่าน ATS",
+                                                        "weight": "bold",
+                                                        "size": "sm",
+                                                        "wrap": true,
+                                                        "align": "center"
+                                                      }
+                                                    ],
+                                                "spacing": "sm",
+                                                "paddingAll": "13px"
+                                              },
+                                        "footer": {
+                                            "type": "box",
+                                            "layout": "vertical",
+                                            "contents": [
+                                            {
+                                              "type": "separator"
+                                            },
+                                            {
+                                              "type": "button",
+                                              "action": {
+                                                  "type": "uri",
+                                                  "label": "วิธีการ",
+                                                  "uri": "'.$web_deposit_manual.'"
+                                                }
+                                            },
+                                            {
+                                              "type": "button",
+                                              "action": {
+                                              "type": "uri",
+                                              "label": "เริ่มฝากเงิน",
+                                              "uri": "'.$web_deposit.'"
+                                            }
+                                            ]
+                                        }
     },
     {
       "type": "bubble",
@@ -202,7 +201,8 @@ if($json_data['events'][0]['type']=="message"){
       "footer": {
         "type": "box",
         "layout": "vertical",
-        "contents": [
+        "contents": 
+        [
           {
             "type": "separator"
           },
