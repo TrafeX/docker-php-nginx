@@ -68,68 +68,68 @@ if($json_data['events'][0]['type']=="message"){
                                 "type": "flex",
                                 "altText": "Call Eservice",
                                 "contents": {
-                                    "type": "carousel",
-                                   "contents": 
-                                  [
-                                    {
-                                      "type": "bubble",
-                                      "size": "micro",
-                                      "hero": {
-                                                "type": "image",
-                                                "url": "https://backend-api-chat.aslsecurities.com/public/assets/img/ats_mobile.png",
-                                                "size": "full",
-                                                "aspectMode": "fit",
-                                                "aspectRatio": "320:213"
-                                              },
-                                      "body": {
-                                                "type": "box",
-                                                "layout": "vertical",
-                                                "contents": [
-                                                      {
-                                                        "type": "text",
-                                                        "text": "ฝากเงินผ่าน ATS",
-                                                        "weight": "bold",
-                                                        "size": "sm",
-                                                        "wrap": true,
-                                                        "align": "center"
-                                                      }
-                                                    ],
-                                                "spacing": "sm",
-                                                "paddingAll": "13px"
-                                              },
-                                        "footer": {
-                                            "type": "box",
-                                            "layout": "vertical",
-                                            "contents": [
-                                            {
-                                              "type": "separator"
-                                            },
-                                            {
-                                              "type": "button",
-                                              "action": {
-                                                  "type": "uri",
-                                                  "label": "วิธีการ",
-                                                  "uri": "'.$web_deposit_manual.'"
-                                                }
-                                            },
-                                            {
-                                              "type": "button",
-                                              "action": {
-                                              "type": "uri",
-                                              "label": "เริ่มฝากเงิน",
-                                              "uri": "'.$web_deposit.'"
-                                            }
-                                            ]
-                                        }
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "size": "micro",
+      "hero": {
+        "type": "image",
+        "url": "https://developers-resource.landpress.line.me/fx/clip/clip10.jpg",
+        "size": "full",
+        "aspectMode": "cover",
+        "aspectRatio": "320:213"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "ฝากเงินผ่าน ATS",
+            "weight": "bold",
+            "size": "sm",
+            "wrap": true,
+            "align": "center"
+          }
+        ],
+        "spacing": "sm",
+        "paddingAll": "13px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "separator"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "message",
+              "label": "วิธีการ",
+              "text": "hello"
+            }
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "message",
+              "label": "เริ่มฝากเงิน",
+              "text": "hello"
+            }
+          }
+        ]
+      }
     },
     {
       "type": "bubble",
       "size": "micro",
       "hero": {
         "type": "image",
-        "url": "https://backend-api-chat.aslsecurities.com/public/assets/img/mobile-banking.png",
+        "url": "https://developers-resource.landpress.line.me/fx/clip/clip11.jpg",
         "size": "full",
-        "aspectMode": "fit",
+        "aspectMode": "cover",
         "aspectRatio": "320:213"
       },
       "body": {
@@ -158,9 +158,9 @@ if($json_data['events'][0]['type']=="message"){
           {
             "type": "button",
             "action": {
-              "type": "uri",
+              "type": "message",
               "label": "วิธีการ",
-              "uri": "'.$web_billpayment_manual.'"
+              "text": "manual billpayment"
             }
           },
           {
@@ -168,7 +168,7 @@ if($json_data['events'][0]['type']=="message"){
             "action": {
               "type": "uri",
               "label": "แนบสลิป",
-              "uri": "'.$web_deposit_slip.'"
+              "uri": "http://linecorp.com/"
             }
           }
         ]
@@ -179,9 +179,9 @@ if($json_data['events'][0]['type']=="message"){
       "size": "micro",
       "hero": {
         "type": "image",
-        "url": "https://backend-api-chat.aslsecurities.com/public/assets/img/insurance-agent.png",
+        "url": "https://developers-resource.landpress.line.me/fx/clip/clip12.jpg",
         "size": "full",
-        "aspectMode": "fit",
+        "aspectMode": "cover",
         "aspectRatio": "320:213"
       },
       "body": {
@@ -201,8 +201,7 @@ if($json_data['events'][0]['type']=="message"){
       "footer": {
         "type": "box",
         "layout": "vertical",
-        "contents": 
-        [
+        "contents": [
           {
             "type": "separator"
           },
@@ -211,7 +210,7 @@ if($json_data['events'][0]['type']=="message"){
             "action": {
               "type": "uri",
               "label": "วิธีการ",
-              "uri": "'.$web_deposit_commission_fee_manual.'"
+              "uri": "http://linecorp.com/"
             }
           },
           {
@@ -219,13 +218,14 @@ if($json_data['events'][0]['type']=="message"){
             "action": {
               "type": "uri",
               "label": "เริ่มฝากเงิน",
-              "uri": "'.$web_deposit_commission_fee.'"
+              "uri": "http://linecorp.com/"
             }
           }
         ]
       }
     }
-                                ]
+  ]
+}
                               }';
                             
 
