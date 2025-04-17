@@ -42,12 +42,18 @@
             </div>
             <div class="col-12 mb-2">
                  <div class="form-group">
-                    <label for="name">เลขที่พอร์ต<span class="required-field"></span></label>
+                    <label for="port">เลขที่พอร์ต<span class="required-field"></span></label>
                     <input type="text" class="form-control" id="port" placeholder="เลขที่พอร์ต">
                     <small id="port-validate" class="form-text text-danger "></small>
                 </div>
             </div>
-           
+            <div class="col-12 mb-2">
+                 <div class="form-group">
+                    <label for="slip">Slip Bank<span class="required-field"></span></label>
+                    <input type="file" class="form-control" id="slip">
+                    <small id="slip-validate" class="form-text text-danger "></small>
+                </div>
+            </div>
             <div class="col-12 mb-2 text-center">
               
                  <button type="button" class="btn btn-primary" onclick="submitData();">ตกลง</button>
