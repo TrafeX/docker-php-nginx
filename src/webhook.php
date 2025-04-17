@@ -1,5 +1,7 @@
 <?php
 $data = file_get_contents('php://input');
+
+echo $data;
 $json_data = json_decode($data,true);
 $token = "7rHgjnqiPL8MZ5zZl/cAescPyxmta+LceUOvljnKPP0hNFgDY4yG00ZeKyGLL0WaQS6SCXfhfzxwTqqVaCwEcHjmIg55goxmfqg/4EVVjNB6M459mfvTwTWp5SV8tiS2p2nVtqoV8czjFtsPZjruawdB04t89/1O/w1cDnyilFU=";
 file_put_contents('log_line.txt', file_get_contents('php://input') . PHP_EOL, FILE_APPEND);
