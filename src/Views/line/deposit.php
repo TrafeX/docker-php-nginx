@@ -24,7 +24,6 @@
          <!-- Styles -->
          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ4n1KerL8Qn0aNv3YvqTmaubgqVd_kps&callback=Function.prototype&libraries=&v=weekly"></script>
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
         <style>
             .required-field::before {
