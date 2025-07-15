@@ -8,7 +8,7 @@ Repository: https://github.com/TrafeX/docker-php-nginx
 * Multi-platform, supporting AMD4, ARMv6, ARMv7, ARM64
 * Very small Docker image size (+/-40MB)
 * Uses PHP 8.4 for the best performance, low CPU usage & memory footprint
-* Optimized for 100 concurrent users
+* Optimized for 100 concurrent users i.e. limits the concurrent requests serving php files
 * Optimized to only use resources when there's traffic (by using PHP-FPM's `on-demand` process manager)
 * The services Nginx, PHP-FPM and supervisord run under a non-privileged user (nobody) to make it more secure
 * The logs of all the services are redirected to the output of the Docker container (visible with `docker logs -f <container name>`)
