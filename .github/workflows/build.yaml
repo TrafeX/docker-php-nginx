@@ -30,7 +30,11 @@ jobs:
 
       - name: Build image
         run: |-
-          docker build -t $IMAGE_NAME:$IMAGE_TAG .
+          docker build \
+            --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') \
+            --build-arg VCS_REF=${{ github.sha }} \
+            --build-arg VERSION=${{ github.ref_name }} \
+            -t $IMAGE_NAME:$IMAGE_TAG .
 
       - name: Smoke test image
         run: |-
@@ -71,10 +75,6 @@ jobs:
             --build-arg VCS_REF=${{ github.sha }} \
             --build-arg VERSION=latest \
             .
-
-      - name: Set tag in environment
-        if: contains(github.ref, 'refs/tags/')
-        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
 
       - name: Parse version components
         if: contains(github.ref, 'refs/tags/')

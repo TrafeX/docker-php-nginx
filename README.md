@@ -40,13 +40,12 @@ Or mount your own code to be served by PHP-FPM & Nginx
     docker run -p 80:8080 -v ~/my-codebase:/var/www/html trafex/php-nginx
 
 ## Versioning
-
 This image follows semantic versioning;
 
-- `latest` - Automatically updated weekly with the latest patches from Alpine Linux
-- `3` - Latest major version 3.x (follows minor and patch updates)
-- `3.9` - Latest version 3.9.x (follows patch updates only)
-- `3.9.1` - Specific patch version (immutable)
+* `latest` - Latest stable release (automatically updated weekly with the latest patches from Alpine Linux)
+* `<major>.<minor>.<patch>` - Specific immutable version (e.g., `3.9.1`, `3.9.2`)
+* `<major>.<minor>` - Latest patch version for a minor release (e.g., `3.9` → `3.9.2`)
+* `<major>` - Latest minor and patch version (e.g., `3` → `3.9.2`)
 
 ## Configuration
 In [config/](config/) you'll find the default configuration files for Nginx, PHP and PHP-FPM.
