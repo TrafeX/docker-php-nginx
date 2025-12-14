@@ -67,18 +67,39 @@ jobs:
             --push \
             -t $IMAGE_NAME:latest \
             --platform linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6 \
+            --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') \
+            --build-arg VCS_REF=${{ github.sha }} \
+            --build-arg VERSION=latest \
             .
 
       - name: Set tag in environment
         if: contains(github.ref, 'refs/tags/')
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
 
-      - name: Build multi-arch image and push release tag
+      - name: Parse version components
+        if: contains(github.ref, 'refs/tags/')
+        id: parse_version
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/}
+          echo "FULL_VERSION=$VERSION" >> $GITHUB_ENV
+          # Extract major version (e.g., 3 from 3.9.1)
+          MAJOR=$(echo $VERSION | cut -d. -f1)
+          echo "MAJOR_VERSION=$MAJOR" >> $GITHUB_ENV
+          # Extract minor version (e.g., 3.9 from 3.9.1)
+          MINOR=$(echo $VERSION | cut -d. -f1,2)
+          echo "MINOR_VERSION=$MINOR" >> $GITHUB_ENV
+
+      - name: Build multi-arch image and push release tags
         if: contains(github.ref, 'refs/tags/')
         run: |-
           docker buildx build \
             --cache-from=$IMAGE_NAME:latest \
             --push \
-            -t $IMAGE_NAME:$RELEASE_VERSION \
+            -t $IMAGE_NAME:$FULL_VERSION \
+            -t $IMAGE_NAME:$MINOR_VERSION \
+            -t $IMAGE_NAME:$MAJOR_VERSION \
             --platform linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6 \
+            --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') \
+            --build-arg VCS_REF=${{ github.sha }} \
+            --build-arg VERSION=$FULL_VERSION \
             .
