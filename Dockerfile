@@ -1,12 +1,11 @@
-ARG ALPINE_VERSION=3.23
-FROM alpine:${ALPINE_VERSION}
+FROM alpine:3.23
 
 # Build metadata arguments
 ARG BUILD_DATE
 ARG VCS_REF
 ARG VERSION
 
-# OCI annotations for supply chain security
+# OCI annotations
 LABEL org.opencontainers.image.created="${BUILD_DATE}"
 LABEL org.opencontainers.image.authors="Tim de Pater <code@trafex.nl>"
 LABEL org.opencontainers.image.url="https://github.com/TrafeX/docker-php-nginx"
