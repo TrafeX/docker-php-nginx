@@ -1,7 +1,7 @@
-ARG ALPINE_VERSION=3.21
+ARG ALPINE_VERSION=3.23
 FROM alpine:${ALPINE_VERSION}
 LABEL Maintainer="Tim de Pater <code@trafex.nl>"
-LABEL Description="Lightweight container with Nginx 1.26 & PHP 8.4 based on Alpine Linux."
+LABEL Description="Lightweight container with Nginx 1.28 & PHP 8.4 based on Alpine Linux."
 # Setup document root
 WORKDIR /var/www/html
 
@@ -29,15 +29,13 @@ RUN apk add --no-cache \
   php84-xmlwriter \
   supervisor
 
-RUN ln -s /usr/bin/php84 /usr/bin/php
-
 # Configure nginx - http
 COPY config/nginx.conf /etc/nginx/nginx.conf
 # Configure nginx - default server
 COPY config/conf.d /etc/nginx/conf.d/
 
 # Configure PHP-FPM
-ENV PHP_INI_DIR /etc/php84
+ENV PHP_INI_DIR=/etc/php84
 COPY config/fpm-pool.conf ${PHP_INI_DIR}/php-fpm.d/www.conf
 COPY config/php.ini ${PHP_INI_DIR}/conf.d/custom.ini
 
