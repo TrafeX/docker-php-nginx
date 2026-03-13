@@ -1,5 +1,5 @@
-# Docker PHP-FPM 8.4 & Nginx 1.28 on Alpine Linux
-Example PHP-FPM 8.4 & Nginx 1.28 container image for Docker, built on [Alpine Linux](https://www.alpinelinux.org/).
+# Docker PHP-FPM 8.5 & Nginx 1.28 on Alpine Linux
+Example PHP-FPM 8.5 & Nginx 1.28 container image for Docker, built on [Alpine Linux](https://www.alpinelinux.org/).
 
 Repository: https://github.com/TrafeX/docker-php-nginx
 
@@ -7,7 +7,7 @@ Repository: https://github.com/TrafeX/docker-php-nginx
 * Built on the lightweight and secure Alpine Linux distribution
 * Multi-platform, supporting AMD4, ARMv6, ARMv7, ARM64
 * Very small Docker image size (+/-40MB)
-* Uses PHP 8.4 for the best performance, low CPU usage & memory footprint
+* Uses PHP 8.5 for the best performance, low CPU usage & memory footprint
 * Optimized for 100 concurrent users i.e. limits the concurrent requests serving php files
 * Optimized to only use resources when there's traffic (by using PHP-FPM's `on-demand` process manager)
 * The services Nginx, PHP-FPM and supervisord run under a non-privileged user (nobody) to make it more secure
@@ -16,7 +16,7 @@ Repository: https://github.com/TrafeX/docker-php-nginx
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/trafex/php-nginx.svg)](https://hub.docker.com/r/trafex/php-nginx/)
 ![nginx 1.28](https://img.shields.io/badge/nginx-1.28-brightgreen.svg)
-![php 8.4](https://img.shields.io/badge/php-8.4-brightgreen.svg)
+![php 8.5](https://img.shields.io/badge/php-8.5-brightgreen.svg)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ## [![Trafex Consultancy](https://timdepater.com/logo/mini-logo.png)](https://timdepater.com?mtm_campaign=github)
@@ -57,11 +57,11 @@ Nginx configuration:
 
 PHP configuration:
 
-    docker run -v "`pwd`/php-setting.ini:/etc/php84/conf.d/settings.ini" trafex/php-nginx
+    docker run -v "`pwd`/php-setting.ini:/etc/php85/conf.d/settings.ini" trafex/php-nginx
 
 PHP-FPM configuration:
 
-    docker run -v "`pwd`/php-fpm-settings.conf:/etc/php84/php-fpm.d/server.conf" trafex/php-nginx
+    docker run -v "`pwd`/php-fpm-settings.conf:/etc/php85/php-fpm.d/server.conf" trafex/php-nginx
 
 _Note; Because `-v` requires an absolute path I've added `pwd` in the example to return the absolute path to the current directory_
 
