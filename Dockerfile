@@ -43,6 +43,9 @@ RUN apk add --no-cache \
   php85-xmlwriter \
   supervisor
 
+# Create alias to php
+RUN ln -s /usr/bin/php85 /usr/bin/php
+
 # Configure nginx - http
 COPY config/nginx.conf /etc/nginx/nginx.conf
 # Configure nginx - default server
