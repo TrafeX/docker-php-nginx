@@ -24,7 +24,7 @@ WORKDIR /var/www/html
 RUN apk add --no-cache \
   curl \
   nginx \
-  php85 \
+  'php85>=8.5.12' \
   php85-ctype \
   php85-curl \
   php85-dom \
