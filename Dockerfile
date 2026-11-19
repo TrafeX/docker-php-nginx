@@ -23,7 +23,7 @@ WORKDIR /var/www/html
 # Install packages and remove default server definition
 RUN apk add --no-cache \
   curl \
-  nginx \
+  'nginx>=1.30.7' \
   'php85>=8.5.12' \
   php85-ctype \
   php85-curl \
